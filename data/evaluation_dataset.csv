@@ -1,0 +1,476 @@
+evaluation_id,question,category,policy_id,expected_answer,difficulty,question_type
+1,What is the policy for contact support?,Customer Support,SUP001,Customers can contact support through the customer support form for assistance with their account or orders.,Easy,Direct
+2,What should I know about invoice requests?,Invoices,INV002,Customers can contact support if they require assistance locating an invoice.,Easy,Conversational
+3,I have a question about order cancellation. What is the policy?,Orders,ORD001,Orders can be cancelled before they are dispatched.,Medium,Policy-focused
+4,What are the requirements for express delivery?,Shipping,SHP002,Express delivery usually takes 1 to 2 business days after dispatch.,Hard,Policy-focused
+5,I have a question about subscription cancellation. What is the policy?,Subscriptions,SUB001,Customers can cancel their subscription through their account settings before the next billing date.,Medium,Policy-focused
+6,I need help with order status. What does the policy say?,Orders,ORD003,Customers can check their order status using the order tracking link provided after dispatch.,Easy,Policy-focused
+7,I need help with order tracking. What does the policy say?,Shipping,SHP003,Orders can be tracked using the tracking link sent to the customer's email after dispatch.,Easy,Policy-focused
+8,How does the international delivery policy work?,International Orders,INT001,International delivery times vary depending on the destination and shipping service selected.,Medium,Paraphrased
+9,Could you give me more information about original packaging?,Returns,RET002,Items should normally be returned in their original packaging to be eligible for a return.,Hard,Conversational
+10,What is the policy for return window?,Returns,RET001,Items can be returned within 30 days of delivery.,Easy,Direct
+11,What should I know about order tracking?,Shipping,SHP003,Orders can be tracked using the tracking link sent to the customer's email after dispatch.,Easy,Conversational
+12,How does the warranty claims policy work?,Warranty,WAR002,Warranty claims can be submitted through customer support with proof of purchase.,Medium,Paraphrased
+13,How does the damaged items policy work?,Returns,RET003,Customers should contact support promptly if an item arrives damaged.,Medium,Paraphrased
+14,What do I need to know regarding warranty period?,Warranty,WAR001,Products are covered by a 12-month warranty from the date of purchase.,Medium,Direct
+15,What should I know about promo codes?,Discounts,DIS001,Valid promotional codes can be entered during checkout before the order is completed.,Easy,Conversational
+16,Can you explain the product information policy?,Products,PRO002,Customers can find product specifications and dimensions on the relevant product page.,Easy,Paraphrased
+17,Can I collect my order directly from your warehouse?,Unsupported,,The available company policy does not contain enough information to answer this question.,Hard,Unsupported
+18,How does the company handle return window?,Returns,RET001,Items can be returned within 30 days of delivery.,Hard,Policy-focused
+19,I have a question about product information. What is the policy?,Products,PRO002,Customers can find product specifications and dimensions on the relevant product page.,Medium,Policy-focused
+20,What do I need to know regarding invoice requests?,Invoices,INV002,Customers can contact support if they require assistance locating an invoice.,Medium,Direct
+21,What information do you have about order tracking?,Shipping,SHP003,Orders can be tracked using the tracking link sent to the customer's email after dispatch.,Medium,Conversational
+22,What is the policy for order cancellation?,Orders,ORD001,Orders can be cancelled before they are dispatched.,Easy,Direct
+23,Can you tell me what the company policy says about warranty period?,Warranty,WAR001,Products are covered by a 12-month warranty from the date of purchase.,Medium,Policy-focused
+24,Please explain the company's order cancellation policy.,Orders,ORD001,Orders can be cancelled before they are dispatched.,Hard,Paraphrased
+25,Please explain the company's subscription renewal policy.,Subscriptions,SUB002,Subscriptions automatically renew on the scheduled billing date unless cancelled beforehand.,Hard,Paraphrased
+26,What is the policy for order status?,Orders,ORD003,Customers can check their order status using the order tracking link provided after dispatch.,Easy,Direct
+27,What are the requirements for invoice requests?,Invoices,INV002,Customers can contact support if they require assistance locating an invoice.,Hard,Policy-focused
+28,I need help with express delivery. What does the policy say?,Shipping,SHP002,Express delivery usually takes 1 to 2 business days after dispatch.,Easy,Policy-focused
+29,Please explain the company's return window policy.,Returns,RET001,Items can be returned within 30 days of delivery.,Hard,Paraphrased
+30,Could you tell me about damaged items?,Returns,RET003,Customers should contact support promptly if an item arrives damaged.,Easy,Policy-focused
+31,I have a question about international tracking. What is the policy?,International Orders,INT002,International orders can be tracked using the tracking information provided after dispatch.,Medium,Policy-focused
+32,Please explain the company's international tracking policy.,International Orders,INT002,International orders can be tracked using the tracking information provided after dispatch.,Hard,Paraphrased
+33,Can you tell me what the company policy says about invoice requests?,Invoices,INV002,Customers can contact support if they require assistance locating an invoice.,Medium,Policy-focused
+34,Could you tell me about order tracking?,Shipping,SHP003,Orders can be tracked using the tracking link sent to the customer's email after dispatch.,Easy,Policy-focused
+35,What information do you have about accepted payment methods?,Payments,PAY001,"We accept Visa, Mastercard, American Express and PayPal.",Medium,Conversational
+36,I need help with order modification. What does the policy say?,Orders,ORD002,Order details cannot normally be changed after an order has been placed. Customers should contact support as soon as possible if a correction is required.,Easy,Policy-focused
+37,Can you explain the invoice requests policy?,Invoices,INV002,Customers can contact support if they require assistance locating an invoice.,Easy,Paraphrased
+38,What do I need to know regarding product availability?,Products,PRO001,Product availability is shown on the product page and may change depending on inventory levels.,Medium,Direct
+39,I have a question about invoice availability. What is the policy?,Invoices,INV001,Invoices are available through the customer's account after an order has been completed.,Medium,Policy-focused
+40,I have a question about order status. What is the policy?,Orders,ORD003,Customers can check their order status using the order tracking link provided after dispatch.,Medium,Policy-focused
+41,What should I know about refund processing time?,Refunds,REF001,Refunds are processed within 5 to 7 business days after the return is approved.,Easy,Conversational
+42,What information do you have about refund payment method?,Refunds,REF002,Refunds are normally returned to the original payment method used for the purchase.,Medium,Conversational
+43,What do I need to know regarding express delivery?,Shipping,SHP002,Express delivery usually takes 1 to 2 business days after dispatch.,Medium,Direct
+44,What do I need to know regarding standard delivery?,Shipping,SHP001,Standard delivery usually takes 3 to 5 business days.,Medium,Direct
+45,What are the rules regarding warranty period?,Warranty,WAR001,Products are covered by a 12-month warranty from the date of purchase.,Medium,Direct
+46,How does the invoice availability policy work?,Invoices,INV001,Invoices are available through the customer's account after an order has been completed.,Medium,Paraphrased
+47,What are the rules regarding discount restrictions?,Discounts,DIS002,Promotional discounts may have specific terms and conditions that should be checked before use.,Medium,Direct
+48,I need help with international delivery. What does the policy say?,International Orders,INT001,International delivery times vary depending on the destination and shipping service selected.,Easy,Policy-focused
+49,Can you explain the product compatibility policy?,Products,PRO003,Customers should check the compatibility information provided on the product page before purchasing.,Easy,Paraphrased
+50,What is the policy for order tracking?,Shipping,SHP003,Orders can be tracked using the tracking link sent to the customer's email after dispatch.,Easy,Direct
+51,I need help with return window. What does the policy say?,Returns,RET001,Items can be returned within 30 days of delivery.,Easy,Policy-focused
+52,I need help with invoice availability. What does the policy say?,Invoices,INV001,Invoices are available through the customer's account after an order has been completed.,Easy,Policy-focused
+53,What are the rules regarding invoice availability?,Invoices,INV001,Invoices are available through the customer's account after an order has been completed.,Medium,Direct
+54,I need help with international tracking. What does the policy say?,International Orders,INT002,International orders can be tracked using the tracking information provided after dispatch.,Easy,Policy-focused
+55,Could you give me more information about express delivery?,Shipping,SHP002,Express delivery usually takes 1 to 2 business days after dispatch.,Hard,Conversational
+56,Could you give me more information about damaged items?,Returns,RET003,Customers should contact support promptly if an item arrives damaged.,Hard,Conversational
+57,How does the company handle invoice availability?,Invoices,INV001,Invoices are available through the customer's account after an order has been completed.,Hard,Policy-focused
+58,What do I need to know regarding warranty claims?,Warranty,WAR002,Warranty claims can be submitted through customer support with proof of purchase.,Medium,Direct
+59,Could you tell me about product information?,Products,PRO002,Customers can find product specifications and dimensions on the relevant product page.,Easy,Policy-focused
+60,Do you offer a military discount?,Unsupported,,The available company policy does not contain enough information to answer this question.,Hard,Unsupported
+61,Can you explain the order tracking policy?,Shipping,SHP003,Orders can be tracked using the tracking link sent to the customer's email after dispatch.,Easy,Paraphrased
+62,Can I pay using Apple Pay?,Unsupported,,The available company policy does not contain enough information to answer this question.,Hard,Unsupported
+63,Please explain the company's accepted payment methods policy.,Payments,PAY001,"We accept Visa, Mastercard, American Express and PayPal.",Hard,Paraphrased
+64,What are the rules regarding refund processing time?,Refunds,REF001,Refunds are processed within 5 to 7 business days after the return is approved.,Medium,Direct
+65,How does the invoice requests policy work?,Invoices,INV002,Customers can contact support if they require assistance locating an invoice.,Medium,Paraphrased
+66,What are the requirements for account closure?,Account,ACC003,Customers can request account closure through customer support.,Hard,Policy-focused
+67,What should I know about product compatibility?,Products,PRO003,Customers should check the compatibility information provided on the product page before purchasing.,Easy,Conversational
+68,What are the rules regarding product availability?,Products,PRO001,Product availability is shown on the product page and may change depending on inventory levels.,Medium,Direct
+69,What are the rules regarding international tracking?,International Orders,INT002,International orders can be tracked using the tracking information provided after dispatch.,Medium,Direct
+70,I need help with refund payment method. What does the policy say?,Refunds,REF002,Refunds are normally returned to the original payment method used for the purchase.,Easy,Policy-focused
+71,Can I pay using Bitcoin?,Unsupported,,The available company policy does not contain enough information to answer this question.,Hard,Unsupported
+72,I need help with discount restrictions. What does the policy say?,Discounts,DIS002,Promotional discounts may have specific terms and conditions that should be checked before use.,Easy,Policy-focused
+73,What are the requirements for international tracking?,International Orders,INT002,International orders can be tracked using the tracking information provided after dispatch.,Hard,Policy-focused
+74,Could you give me more information about invoice availability?,Invoices,INV001,Invoices are available through the customer's account after an order has been completed.,Hard,Conversational
+75,What is the policy for order modification?,Orders,ORD002,Order details cannot normally be changed after an order has been placed. Customers should contact support as soon as possible if a correction is required.,Easy,Direct
+76,What are the requirements for refund processing time?,Refunds,REF001,Refunds are processed within 5 to 7 business days after the return is approved.,Hard,Policy-focused
+77,Can you tell me what the company policy says about subscription renewal?,Subscriptions,SUB002,Subscriptions automatically renew on the scheduled billing date unless cancelled beforehand.,Medium,Policy-focused
+78,Could you tell me about order modification?,Orders,ORD002,Order details cannot normally be changed after an order has been placed. Customers should contact support as soon as possible if a correction is required.,Easy,Policy-focused
+79,What information do you have about product compatibility?,Products,PRO003,Customers should check the compatibility information provided on the product page before purchasing.,Medium,Conversational
+80,Can you explain the promo codes policy?,Discounts,DIS001,Valid promotional codes can be entered during checkout before the order is completed.,Easy,Paraphrased
+81,Please explain the company's standard delivery policy.,Shipping,SHP001,Standard delivery usually takes 3 to 5 business days.,Hard,Paraphrased
+82,How does the company handle password reset?,Account,ACC001,Customers can reset their password by selecting 'Forgot password' on the login page and following the instructions sent to their email.,Hard,Policy-focused
+83,Do you offer student discounts?,Unsupported,,The available company policy does not contain enough information to answer this question.,Hard,Unsupported
+84,What are the requirements for invoice availability?,Invoices,INV001,Invoices are available through the customer's account after an order has been completed.,Hard,Policy-focused
+85,Could you give me more information about subscription cancellation?,Subscriptions,SUB001,Customers can cancel their subscription through their account settings before the next billing date.,Hard,Conversational
+86,I need help with invoice requests. What does the policy say?,Invoices,INV002,Customers can contact support if they require assistance locating an invoice.,Easy,Policy-focused
+87,How does the company handle complaints?,Customer Support,SUP002,Customers can submit complaints through the customer support form.,Hard,Policy-focused
+88,What do I need to know regarding order modification?,Orders,ORD002,Order details cannot normally be changed after an order has been placed. Customers should contact support as soon as possible if a correction is required.,Medium,Direct
+89,Can you explain the email address change policy?,Account,ACC002,Customers can request an email address change through customer support after verifying their account.,Easy,Paraphrased
+90,What do I need to know regarding email address change?,Account,ACC002,Customers can request an email address change through customer support after verifying their account.,Medium,Direct
+91,Please explain the company's invoice availability policy.,Invoices,INV001,Invoices are available through the customer's account after an order has been completed.,Hard,Paraphrased
+92,Could you give me more information about order status?,Orders,ORD003,Customers can check their order status using the order tracking link provided after dispatch.,Hard,Conversational
+93,Could you tell me about password reset?,Account,ACC001,Customers can reset their password by selecting 'Forgot password' on the login page and following the instructions sent to their email.,Easy,Policy-focused
+94,Could you tell me about refund payment method?,Refunds,REF002,Refunds are normally returned to the original payment method used for the purchase.,Easy,Policy-focused
+95,What information do you have about warranty period?,Warranty,WAR001,Products are covered by a 12-month warranty from the date of purchase.,Medium,Conversational
+96,Could you give me more information about account closure?,Account,ACC003,Customers can request account closure through customer support.,Hard,Conversational
+97,Can you tell me what the company policy says about password reset?,Account,ACC001,Customers can reset their password by selecting 'Forgot password' on the login page and following the instructions sent to their email.,Medium,Policy-focused
+98,Could you tell me about account closure?,Account,ACC003,Customers can request account closure through customer support.,Easy,Policy-focused
+99,How does the complaints policy work?,Customer Support,SUP002,Customers can submit complaints through the customer support form.,Medium,Paraphrased
+100,What information do you have about order modification?,Orders,ORD002,Order details cannot normally be changed after an order has been placed. Customers should contact support as soon as possible if a correction is required.,Medium,Conversational
+101,Please explain the company's product compatibility policy.,Products,PRO003,Customers should check the compatibility information provided on the product page before purchasing.,Hard,Paraphrased
+102,Can you explain the standard delivery policy?,Shipping,SHP001,Standard delivery usually takes 3 to 5 business days.,Easy,Paraphrased
+103,What are the rules regarding product compatibility?,Products,PRO003,Customers should check the compatibility information provided on the product page before purchasing.,Medium,Direct
+104,How does the discount restrictions policy work?,Discounts,DIS002,Promotional discounts may have specific terms and conditions that should be checked before use.,Medium,Paraphrased
+105,What do I need to know regarding invoice availability?,Invoices,INV001,Invoices are available through the customer's account after an order has been completed.,Medium,Direct
+106,What is the policy for payment failure?,Payments,PAY002,"If a payment fails, customers should check their payment details and try the transaction again.",Easy,Direct
+107,Can you tell me what the company policy says about original packaging?,Returns,RET002,Items should normally be returned in their original packaging to be eligible for a return.,Medium,Policy-focused
+108,Could you give me more information about standard delivery?,Shipping,SHP001,Standard delivery usually takes 3 to 5 business days.,Hard,Conversational
+109,I need help with promo codes. What does the policy say?,Discounts,DIS001,Valid promotional codes can be entered during checkout before the order is completed.,Easy,Policy-focused
+110,Could you give me more information about payment failure?,Payments,PAY002,"If a payment fails, customers should check their payment details and try the transaction again.",Hard,Conversational
+111,Can you tell me what the company policy says about complaints?,Customer Support,SUP002,Customers can submit complaints through the customer support form.,Medium,Policy-focused
+112,I have a question about order modification. What is the policy?,Orders,ORD002,Order details cannot normally be changed after an order has been placed. Customers should contact support as soon as possible if a correction is required.,Medium,Policy-focused
+113,What should I know about order modification?,Orders,ORD002,Order details cannot normally be changed after an order has been placed. Customers should contact support as soon as possible if a correction is required.,Easy,Conversational
+114,How does the express delivery policy work?,Shipping,SHP002,Express delivery usually takes 1 to 2 business days after dispatch.,Medium,Paraphrased
+115,What are the rules regarding refund payment method?,Refunds,REF002,Refunds are normally returned to the original payment method used for the purchase.,Medium,Direct
+116,Please explain the company's order tracking policy.,Shipping,SHP003,Orders can be tracked using the tracking link sent to the customer's email after dispatch.,Hard,Paraphrased
+117,Can you explain the order status policy?,Orders,ORD003,Customers can check their order status using the order tracking link provided after dispatch.,Easy,Paraphrased
+118,I have a question about order tracking. What is the policy?,Shipping,SHP003,Orders can be tracked using the tracking link sent to the customer's email after dispatch.,Medium,Policy-focused
+119,What do I need to know regarding complaints?,Customer Support,SUP002,Customers can submit complaints through the customer support form.,Medium,Direct
+120,What are the rules regarding payment failure?,Payments,PAY002,"If a payment fails, customers should check their payment details and try the transaction again.",Medium,Direct
+121,What are the requirements for password reset?,Account,ACC001,Customers can reset their password by selecting 'Forgot password' on the login page and following the instructions sent to their email.,Hard,Policy-focused
+122,Can you explain the invoice availability policy?,Invoices,INV001,Invoices are available through the customer's account after an order has been completed.,Easy,Paraphrased
+123,Please explain the company's damaged items policy.,Returns,RET003,Customers should contact support promptly if an item arrives damaged.,Hard,Paraphrased
+124,Could you tell me about return window?,Returns,RET001,Items can be returned within 30 days of delivery.,Easy,Policy-focused
+125,What information do you have about warranty claims?,Warranty,WAR002,Warranty claims can be submitted through customer support with proof of purchase.,Medium,Conversational
+126,What information do you have about contact support?,Customer Support,SUP001,Customers can contact support through the customer support form for assistance with their account or orders.,Medium,Conversational
+127,What is the policy for warranty claims?,Warranty,WAR002,Warranty claims can be submitted through customer support with proof of purchase.,Easy,Direct
+128,What do I need to know regarding accepted payment methods?,Payments,PAY001,"We accept Visa, Mastercard, American Express and PayPal.",Medium,Direct
+129,How does the company handle subscription renewal?,Subscriptions,SUB002,Subscriptions automatically renew on the scheduled billing date unless cancelled beforehand.,Hard,Policy-focused
+130,What is the policy for account closure?,Account,ACC003,Customers can request account closure through customer support.,Easy,Direct
+131,What do I need to know regarding promo codes?,Discounts,DIS001,Valid promotional codes can be entered during checkout before the order is completed.,Medium,Direct
+132,Please explain the company's contact support policy.,Customer Support,SUP001,Customers can contact support through the customer support form for assistance with their account or orders.,Hard,Paraphrased
+133,What are the rules regarding order cancellation?,Orders,ORD001,Orders can be cancelled before they are dispatched.,Medium,Direct
+134,Please explain the company's original packaging policy.,Returns,RET002,Items should normally be returned in their original packaging to be eligible for a return.,Hard,Paraphrased
+135,What is the policy for standard delivery?,Shipping,SHP001,Standard delivery usually takes 3 to 5 business days.,Easy,Direct
+136,Can you explain the order modification policy?,Orders,ORD002,Order details cannot normally be changed after an order has been placed. Customers should contact support as soon as possible if a correction is required.,Easy,Paraphrased
+137,Could you tell me about international delivery?,International Orders,INT001,International delivery times vary depending on the destination and shipping service selected.,Easy,Policy-focused
+138,What do I need to know regarding discount restrictions?,Discounts,DIS002,Promotional discounts may have specific terms and conditions that should be checked before use.,Medium,Direct
+139,I need help with order cancellation. What does the policy say?,Orders,ORD001,Orders can be cancelled before they are dispatched.,Easy,Policy-focused
+140,Could you tell me about international tracking?,International Orders,INT002,International orders can be tracked using the tracking information provided after dispatch.,Easy,Policy-focused
+141,What is the policy for express delivery?,Shipping,SHP002,Express delivery usually takes 1 to 2 business days after dispatch.,Easy,Direct
+142,What are the rules regarding original packaging?,Returns,RET002,Items should normally be returned in their original packaging to be eligible for a return.,Medium,Direct
+143,What are the requirements for contact support?,Customer Support,SUP001,Customers can contact support through the customer support form for assistance with their account or orders.,Hard,Policy-focused
+144,Could you give me more information about product compatibility?,Products,PRO003,Customers should check the compatibility information provided on the product page before purchasing.,Hard,Conversational
+145,How does the company handle order modification?,Orders,ORD002,Order details cannot normally be changed after an order has been placed. Customers should contact support as soon as possible if a correction is required.,Hard,Policy-focused
+146,What should I know about payment failure?,Payments,PAY002,"If a payment fails, customers should check their payment details and try the transaction again.",Easy,Conversational
+147,What should I know about complaints?,Customer Support,SUP002,Customers can submit complaints through the customer support form.,Easy,Conversational
+148,Please explain the company's order modification policy.,Orders,ORD002,Order details cannot normally be changed after an order has been placed. Customers should contact support as soon as possible if a correction is required.,Hard,Paraphrased
+149,What information do you have about order cancellation?,Orders,ORD001,Orders can be cancelled before they are dispatched.,Medium,Conversational
+150,Could you give me more information about invoice requests?,Invoices,INV002,Customers can contact support if they require assistance locating an invoice.,Hard,Conversational
+151,I need help with original packaging. What does the policy say?,Returns,RET002,Items should normally be returned in their original packaging to be eligible for a return.,Easy,Policy-focused
+152,What information do you have about international delivery?,International Orders,INT001,International delivery times vary depending on the destination and shipping service selected.,Medium,Conversational
+153,Could you give me more information about international delivery?,International Orders,INT001,International delivery times vary depending on the destination and shipping service selected.,Hard,Conversational
+154,What are the requirements for original packaging?,Returns,RET002,Items should normally be returned in their original packaging to be eligible for a return.,Hard,Policy-focused
+155,I have a question about original packaging. What is the policy?,Returns,RET002,Items should normally be returned in their original packaging to be eligible for a return.,Medium,Policy-focused
+156,Can you explain the payment failure policy?,Payments,PAY002,"If a payment fails, customers should check their payment details and try the transaction again.",Easy,Paraphrased
+157,Could you give me more information about email address change?,Account,ACC002,Customers can request an email address change through customer support after verifying their account.,Hard,Conversational
+158,What are the requirements for warranty period?,Warranty,WAR001,Products are covered by a 12-month warranty from the date of purchase.,Hard,Policy-focused
+159,What information do you have about subscription cancellation?,Subscriptions,SUB001,Customers can cancel their subscription through their account settings before the next billing date.,Medium,Conversational
+160,What should I know about subscription renewal?,Subscriptions,SUB002,Subscriptions automatically renew on the scheduled billing date unless cancelled beforehand.,Easy,Conversational
+161,Can you tell me what the company policy says about accepted payment methods?,Payments,PAY001,"We accept Visa, Mastercard, American Express and PayPal.",Medium,Policy-focused
+162,What are the requirements for international delivery?,International Orders,INT001,International delivery times vary depending on the destination and shipping service selected.,Hard,Policy-focused
+163,What are the requirements for payment failure?,Payments,PAY002,"If a payment fails, customers should check their payment details and try the transaction again.",Hard,Policy-focused
+164,Could you tell me about invoice requests?,Invoices,INV002,Customers can contact support if they require assistance locating an invoice.,Easy,Policy-focused
+165,How does the refund processing time policy work?,Refunds,REF001,Refunds are processed within 5 to 7 business days after the return is approved.,Medium,Paraphrased
+166,Can I change my delivery address after dispatch?,Unsupported,,The available company policy does not contain enough information to answer this question.,Hard,Unsupported
+167,What information do you have about express delivery?,Shipping,SHP002,Express delivery usually takes 1 to 2 business days after dispatch.,Medium,Conversational
+168,What are the requirements for subscription renewal?,Subscriptions,SUB002,Subscriptions automatically renew on the scheduled billing date unless cancelled beforehand.,Hard,Policy-focused
+169,I need help with accepted payment methods. What does the policy say?,Payments,PAY001,"We accept Visa, Mastercard, American Express and PayPal.",Easy,Policy-focused
+170,What are the requirements for subscription cancellation?,Subscriptions,SUB001,Customers can cancel their subscription through their account settings before the next billing date.,Hard,Policy-focused
+171,Could you give me more information about product information?,Products,PRO002,Customers can find product specifications and dimensions on the relevant product page.,Hard,Conversational
+172,What are the requirements for warranty claims?,Warranty,WAR002,Warranty claims can be submitted through customer support with proof of purchase.,Hard,Policy-focused
+173,Could you tell me about original packaging?,Returns,RET002,Items should normally be returned in their original packaging to be eligible for a return.,Easy,Policy-focused
+174,What information do you have about promo codes?,Discounts,DIS001,Valid promotional codes can be entered during checkout before the order is completed.,Medium,Conversational
+175,What do I need to know regarding refund processing time?,Refunds,REF001,Refunds are processed within 5 to 7 business days after the return is approved.,Medium,Direct
+176,What are the rules regarding promo codes?,Discounts,DIS001,Valid promotional codes can be entered during checkout before the order is completed.,Medium,Direct
+177,What should I know about refund payment method?,Refunds,REF002,Refunds are normally returned to the original payment method used for the purchase.,Easy,Conversational
+178,What is the policy for password reset?,Account,ACC001,Customers can reset their password by selecting 'Forgot password' on the login page and following the instructions sent to their email.,Easy,Direct
+179,Can you explain the discount restrictions policy?,Discounts,DIS002,Promotional discounts may have specific terms and conditions that should be checked before use.,Easy,Paraphrased
+180,Can you tell me what the company policy says about order tracking?,Shipping,SHP003,Orders can be tracked using the tracking link sent to the customer's email after dispatch.,Medium,Policy-focused
+181,Can you tell me what the company policy says about email address change?,Account,ACC002,Customers can request an email address change through customer support after verifying their account.,Medium,Policy-focused
+182,What is the policy for accepted payment methods?,Payments,PAY001,"We accept Visa, Mastercard, American Express and PayPal.",Easy,Direct
+183,Please explain the company's product availability policy.,Products,PRO001,Product availability is shown on the product page and may change depending on inventory levels.,Hard,Paraphrased
+184,I have a question about password reset. What is the policy?,Account,ACC001,Customers can reset their password by selecting 'Forgot password' on the login page and following the instructions sent to their email.,Medium,Policy-focused
+185,How does the company handle express delivery?,Shipping,SHP002,Express delivery usually takes 1 to 2 business days after dispatch.,Hard,Policy-focused
+186,I have a question about warranty period. What is the policy?,Warranty,WAR001,Products are covered by a 12-month warranty from the date of purchase.,Medium,Policy-focused
+187,What are the rules regarding complaints?,Customer Support,SUP002,Customers can submit complaints through the customer support form.,Medium,Direct
+188,Please explain the company's warranty claims policy.,Warranty,WAR002,Warranty claims can be submitted through customer support with proof of purchase.,Hard,Paraphrased
+189,How does the company handle original packaging?,Returns,RET002,Items should normally be returned in their original packaging to be eligible for a return.,Hard,Policy-focused
+190,What information do you have about product availability?,Products,PRO001,Product availability is shown on the product page and may change depending on inventory levels.,Medium,Conversational
+191,How does the company handle product availability?,Products,PRO001,Product availability is shown on the product page and may change depending on inventory levels.,Hard,Policy-focused
+192,What should I know about account closure?,Account,ACC003,Customers can request account closure through customer support.,Easy,Conversational
+193,Could you tell me about contact support?,Customer Support,SUP001,Customers can contact support through the customer support form for assistance with their account or orders.,Easy,Policy-focused
+194,Can you explain the complaints policy?,Customer Support,SUP002,Customers can submit complaints through the customer support form.,Easy,Paraphrased
+195,I need help with account closure. What does the policy say?,Account,ACC003,Customers can request account closure through customer support.,Easy,Policy-focused
+196,What is the policy for email address change?,Account,ACC002,Customers can request an email address change through customer support after verifying their account.,Easy,Direct
+197,What are the rules regarding subscription renewal?,Subscriptions,SUB002,Subscriptions automatically renew on the scheduled billing date unless cancelled beforehand.,Medium,Direct
+198,What information do you have about complaints?,Customer Support,SUP002,Customers can submit complaints through the customer support form.,Medium,Conversational
+199,How does the order status policy work?,Orders,ORD003,Customers can check their order status using the order tracking link provided after dispatch.,Medium,Paraphrased
+200,Can you explain the password reset policy?,Account,ACC001,Customers can reset their password by selecting 'Forgot password' on the login page and following the instructions sent to their email.,Easy,Paraphrased
+201,Could you tell me about refund processing time?,Refunds,REF001,Refunds are processed within 5 to 7 business days after the return is approved.,Easy,Policy-focused
+202,What should I know about subscription cancellation?,Subscriptions,SUB001,Customers can cancel their subscription through their account settings before the next billing date.,Easy,Conversational
+203,Please explain the company's subscription cancellation policy.,Subscriptions,SUB001,Customers can cancel their subscription through their account settings before the next billing date.,Hard,Paraphrased
+204,Could you give me more information about complaints?,Customer Support,SUP002,Customers can submit complaints through the customer support form.,Hard,Conversational
+205,Can you explain the product availability policy?,Products,PRO001,Product availability is shown on the product page and may change depending on inventory levels.,Easy,Paraphrased
+206,How does the company handle standard delivery?,Shipping,SHP001,Standard delivery usually takes 3 to 5 business days.,Hard,Policy-focused
+207,How does the original packaging policy work?,Returns,RET002,Items should normally be returned in their original packaging to be eligible for a return.,Medium,Paraphrased
+208,What are the requirements for product information?,Products,PRO002,Customers can find product specifications and dimensions on the relevant product page.,Hard,Policy-focused
+209,I have a question about invoice requests. What is the policy?,Invoices,INV002,Customers can contact support if they require assistance locating an invoice.,Medium,Policy-focused
+210,How does the order cancellation policy work?,Orders,ORD001,Orders can be cancelled before they are dispatched.,Medium,Paraphrased
+211,Could you tell me about subscription renewal?,Subscriptions,SUB002,Subscriptions automatically renew on the scheduled billing date unless cancelled beforehand.,Easy,Policy-focused
+212,How does the company handle promo codes?,Discounts,DIS001,Valid promotional codes can be entered during checkout before the order is completed.,Hard,Policy-focused
+213,Can you tell me what the company policy says about refund payment method?,Refunds,REF002,Refunds are normally returned to the original payment method used for the purchase.,Medium,Policy-focused
+214,What is the policy for refund payment method?,Refunds,REF002,Refunds are normally returned to the original payment method used for the purchase.,Easy,Direct
+215,Could you give me more information about accepted payment methods?,Payments,PAY001,"We accept Visa, Mastercard, American Express and PayPal.",Hard,Conversational
+216,Could you tell me about payment failure?,Payments,PAY002,"If a payment fails, customers should check their payment details and try the transaction again.",Easy,Policy-focused
+217,What do I need to know regarding order cancellation?,Orders,ORD001,Orders can be cancelled before they are dispatched.,Medium,Direct
+218,Please explain the company's invoice requests policy.,Invoices,INV002,Customers can contact support if they require assistance locating an invoice.,Hard,Paraphrased
+219,What are the requirements for return window?,Returns,RET001,Items can be returned within 30 days of delivery.,Hard,Policy-focused
+220,How does the order tracking policy work?,Shipping,SHP003,Orders can be tracked using the tracking link sent to the customer's email after dispatch.,Medium,Paraphrased
+221,Can you tell me what the company policy says about order status?,Orders,ORD003,Customers can check their order status using the order tracking link provided after dispatch.,Medium,Policy-focused
+222,How does the company handle product information?,Products,PRO002,Customers can find product specifications and dimensions on the relevant product page.,Hard,Policy-focused
+223,What should I know about accepted payment methods?,Payments,PAY001,"We accept Visa, Mastercard, American Express and PayPal.",Easy,Conversational
+224,What do I need to know regarding international delivery?,International Orders,INT001,International delivery times vary depending on the destination and shipping service selected.,Medium,Direct
+225,Can you tell me what the company policy says about product availability?,Products,PRO001,Product availability is shown on the product page and may change depending on inventory levels.,Medium,Policy-focused
+226,I need help with password reset. What does the policy say?,Account,ACC001,Customers can reset their password by selecting 'Forgot password' on the login page and following the instructions sent to their email.,Easy,Policy-focused
+227,Can you tell me what the company policy says about contact support?,Customer Support,SUP001,Customers can contact support through the customer support form for assistance with their account or orders.,Medium,Policy-focused
+228,I have a question about account closure. What is the policy?,Account,ACC003,Customers can request account closure through customer support.,Medium,Policy-focused
+229,How does the account closure policy work?,Account,ACC003,Customers can request account closure through customer support.,Medium,Paraphrased
+230,How does the company handle payment failure?,Payments,PAY002,"If a payment fails, customers should check their payment details and try the transaction again.",Hard,Policy-focused
+231,How does the company handle order tracking?,Shipping,SHP003,Orders can be tracked using the tracking link sent to the customer's email after dispatch.,Hard,Policy-focused
+232,Please explain the company's refund processing time policy.,Refunds,REF001,Refunds are processed within 5 to 7 business days after the return is approved.,Hard,Paraphrased
+233,What are the requirements for refund payment method?,Refunds,REF002,Refunds are normally returned to the original payment method used for the purchase.,Hard,Policy-focused
+234,Could you tell me about warranty period?,Warranty,WAR001,Products are covered by a 12-month warranty from the date of purchase.,Easy,Policy-focused
+235,Could you give me more information about refund processing time?,Refunds,REF001,Refunds are processed within 5 to 7 business days after the return is approved.,Hard,Conversational
+236,What should I know about order cancellation?,Orders,ORD001,Orders can be cancelled before they are dispatched.,Easy,Conversational
+237,What should I know about return window?,Returns,RET001,Items can be returned within 30 days of delivery.,Easy,Conversational
+238,How does the contact support policy work?,Customer Support,SUP001,Customers can contact support through the customer support form for assistance with their account or orders.,Medium,Paraphrased
+239,I have a question about express delivery. What is the policy?,Shipping,SHP002,Express delivery usually takes 1 to 2 business days after dispatch.,Medium,Policy-focused
+240,What should I know about product availability?,Products,PRO001,Product availability is shown on the product page and may change depending on inventory levels.,Easy,Conversational
+241,I need help with damaged items. What does the policy say?,Returns,RET003,Customers should contact support promptly if an item arrives damaged.,Easy,Policy-focused
+242,How does the subscription cancellation policy work?,Subscriptions,SUB001,Customers can cancel their subscription through their account settings before the next billing date.,Medium,Paraphrased
+243,How does the return window policy work?,Returns,RET001,Items can be returned within 30 days of delivery.,Medium,Paraphrased
+244,Can you tell me what the company policy says about refund processing time?,Refunds,REF001,Refunds are processed within 5 to 7 business days after the return is approved.,Medium,Policy-focused
+245,How does the company handle account closure?,Account,ACC003,Customers can request account closure through customer support.,Hard,Policy-focused
+246,What is the policy for subscription renewal?,Subscriptions,SUB002,Subscriptions automatically renew on the scheduled billing date unless cancelled beforehand.,Easy,Direct
+247,Please explain the company's discount restrictions policy.,Discounts,DIS002,Promotional discounts may have specific terms and conditions that should be checked before use.,Hard,Paraphrased
+248,How does the product information policy work?,Products,PRO002,Customers can find product specifications and dimensions on the relevant product page.,Medium,Paraphrased
+249,What information do you have about return window?,Returns,RET001,Items can be returned within 30 days of delivery.,Medium,Conversational
+250,What is the policy for international tracking?,International Orders,INT002,International orders can be tracked using the tracking information provided after dispatch.,Easy,Direct
+251,Can you tell me what the company policy says about express delivery?,Shipping,SHP002,Express delivery usually takes 1 to 2 business days after dispatch.,Medium,Policy-focused
+252,Can you tell me what the company policy says about order modification?,Orders,ORD002,Order details cannot normally be changed after an order has been placed. Customers should contact support as soon as possible if a correction is required.,Medium,Policy-focused
+253,What information do you have about order status?,Orders,ORD003,Customers can check their order status using the order tracking link provided after dispatch.,Medium,Conversational
+254,I have a question about refund processing time. What is the policy?,Refunds,REF001,Refunds are processed within 5 to 7 business days after the return is approved.,Medium,Policy-focused
+255,What should I know about damaged items?,Returns,RET003,Customers should contact support promptly if an item arrives damaged.,Easy,Conversational
+256,I need help with payment failure. What does the policy say?,Payments,PAY002,"If a payment fails, customers should check their payment details and try the transaction again.",Easy,Policy-focused
+257,What information do you have about password reset?,Account,ACC001,Customers can reset their password by selecting 'Forgot password' on the login page and following the instructions sent to their email.,Medium,Conversational
+258,How does the warranty period policy work?,Warranty,WAR001,Products are covered by a 12-month warranty from the date of purchase.,Medium,Paraphrased
+259,What are the rules regarding product information?,Products,PRO002,Customers can find product specifications and dimensions on the relevant product page.,Medium,Direct
+260,Could you tell me about product compatibility?,Products,PRO003,Customers should check the compatibility information provided on the product page before purchasing.,Easy,Policy-focused
+261,Could you tell me about discount restrictions?,Discounts,DIS002,Promotional discounts may have specific terms and conditions that should be checked before use.,Easy,Policy-focused
+262,I have a question about subscription renewal. What is the policy?,Subscriptions,SUB002,Subscriptions automatically renew on the scheduled billing date unless cancelled beforehand.,Medium,Policy-focused
+263,What should I know about contact support?,Customer Support,SUP001,Customers can contact support through the customer support form for assistance with their account or orders.,Easy,Conversational
+264,What is the policy for complaints?,Customer Support,SUP002,Customers can submit complaints through the customer support form.,Easy,Direct
+265,What are the rules regarding damaged items?,Returns,RET003,Customers should contact support promptly if an item arrives damaged.,Medium,Direct
+266,What should I know about product information?,Products,PRO002,Customers can find product specifications and dimensions on the relevant product page.,Easy,Conversational
+267,What are the requirements for email address change?,Account,ACC002,Customers can request an email address change through customer support after verifying their account.,Hard,Policy-focused
+268,I have a question about complaints. What is the policy?,Customer Support,SUP002,Customers can submit complaints through the customer support form.,Medium,Policy-focused
+269,I have a question about email address change. What is the policy?,Account,ACC002,Customers can request an email address change through customer support after verifying their account.,Medium,Policy-focused
+270,I have a question about damaged items. What is the policy?,Returns,RET003,Customers should contact support promptly if an item arrives damaged.,Medium,Policy-focused
+271,Please explain the company's complaints policy.,Customer Support,SUP002,Customers can submit complaints through the customer support form.,Hard,Paraphrased
+272,Could you tell me about product availability?,Products,PRO001,Product availability is shown on the product page and may change depending on inventory levels.,Easy,Policy-focused
+273,I have a question about international delivery. What is the policy?,International Orders,INT001,International delivery times vary depending on the destination and shipping service selected.,Medium,Policy-focused
+274,What are the requirements for complaints?,Customer Support,SUP002,Customers can submit complaints through the customer support form.,Hard,Policy-focused
+275,Please explain the company's international delivery policy.,International Orders,INT001,International delivery times vary depending on the destination and shipping service selected.,Hard,Paraphrased
+276,Can you tell me what the company policy says about discount restrictions?,Discounts,DIS002,Promotional discounts may have specific terms and conditions that should be checked before use.,Medium,Policy-focused
+277,Can you explain the contact support policy?,Customer Support,SUP001,Customers can contact support through the customer support form for assistance with their account or orders.,Easy,Paraphrased
+278,Could you tell me about subscription cancellation?,Subscriptions,SUB001,Customers can cancel their subscription through their account settings before the next billing date.,Easy,Policy-focused
+279,I have a question about promo codes. What is the policy?,Discounts,DIS001,Valid promotional codes can be entered during checkout before the order is completed.,Medium,Policy-focused
+280,What information do you have about original packaging?,Returns,RET002,Items should normally be returned in their original packaging to be eligible for a return.,Medium,Conversational
+281,How does the company handle accepted payment methods?,Payments,PAY001,"We accept Visa, Mastercard, American Express and PayPal.",Hard,Policy-focused
+282,What information do you have about subscription renewal?,Subscriptions,SUB002,Subscriptions automatically renew on the scheduled billing date unless cancelled beforehand.,Medium,Conversational
+283,Can you tell me what the company policy says about promo codes?,Discounts,DIS001,Valid promotional codes can be entered during checkout before the order is completed.,Medium,Policy-focused
+284,How does the company handle product compatibility?,Products,PRO003,Customers should check the compatibility information provided on the product page before purchasing.,Hard,Policy-focused
+285,What information do you have about international tracking?,International Orders,INT002,International orders can be tracked using the tracking information provided after dispatch.,Medium,Conversational
+286,Could you give me more information about discount restrictions?,Discounts,DIS002,Promotional discounts may have specific terms and conditions that should be checked before use.,Hard,Conversational
+287,Can you tell me what the company policy says about account closure?,Account,ACC003,Customers can request account closure through customer support.,Medium,Policy-focused
+288,Please explain the company's product information policy.,Products,PRO002,Customers can find product specifications and dimensions on the relevant product page.,Hard,Paraphrased
+289,How does the company handle refund payment method?,Refunds,REF002,Refunds are normally returned to the original payment method used for the purchase.,Hard,Policy-focused
+290,Can you explain the refund processing time policy?,Refunds,REF001,Refunds are processed within 5 to 7 business days after the return is approved.,Easy,Paraphrased
+291,What should I know about password reset?,Account,ACC001,Customers can reset their password by selecting 'Forgot password' on the login page and following the instructions sent to their email.,Easy,Conversational
+292,I need help with warranty claims. What does the policy say?,Warranty,WAR002,Warranty claims can be submitted through customer support with proof of purchase.,Easy,Policy-focused
+293,What information do you have about account closure?,Account,ACC003,Customers can request account closure through customer support.,Medium,Conversational
+294,What do I need to know regarding original packaging?,Returns,RET002,Items should normally be returned in their original packaging to be eligible for a return.,Medium,Direct
+295,What is the policy for damaged items?,Returns,RET003,Customers should contact support promptly if an item arrives damaged.,Easy,Direct
+296,What should I know about discount restrictions?,Discounts,DIS002,Promotional discounts may have specific terms and conditions that should be checked before use.,Easy,Conversational
+297,How does the company handle email address change?,Account,ACC002,Customers can request an email address change through customer support after verifying their account.,Hard,Policy-focused
+298,I have a question about contact support. What is the policy?,Customer Support,SUP001,Customers can contact support through the customer support form for assistance with their account or orders.,Medium,Policy-focused
+299,How does the promo codes policy work?,Discounts,DIS001,Valid promotional codes can be entered during checkout before the order is completed.,Medium,Paraphrased
+300,What information do you have about damaged items?,Returns,RET003,Customers should contact support promptly if an item arrives damaged.,Medium,Conversational
+301,What is the policy for product information?,Products,PRO002,Customers can find product specifications and dimensions on the relevant product page.,Easy,Direct
+302,I need help with complaints. What does the policy say?,Customer Support,SUP002,Customers can submit complaints through the customer support form.,Easy,Policy-focused
+303,What should I know about original packaging?,Returns,RET002,Items should normally be returned in their original packaging to be eligible for a return.,Easy,Conversational
+304,Can you tell me what the company policy says about subscription cancellation?,Subscriptions,SUB001,Customers can cancel their subscription through their account settings before the next billing date.,Medium,Policy-focused
+305,What do I need to know regarding product compatibility?,Products,PRO003,Customers should check the compatibility information provided on the product page before purchasing.,Medium,Direct
+306,What are the requirements for damaged items?,Returns,RET003,Customers should contact support promptly if an item arrives damaged.,Hard,Policy-focused
+307,Can you explain the subscription cancellation policy?,Subscriptions,SUB001,Customers can cancel their subscription through their account settings before the next billing date.,Easy,Paraphrased
+308,How does the company handle order status?,Orders,ORD003,Customers can check their order status using the order tracking link provided after dispatch.,Hard,Policy-focused
+309,What should I know about international delivery?,International Orders,INT001,International delivery times vary depending on the destination and shipping service selected.,Easy,Conversational
+310,What are the rules regarding express delivery?,Shipping,SHP002,Express delivery usually takes 1 to 2 business days after dispatch.,Medium,Direct
+311,What are the requirements for product availability?,Products,PRO001,Product availability is shown on the product page and may change depending on inventory levels.,Hard,Policy-focused
+312,What do I need to know regarding order tracking?,Shipping,SHP003,Orders can be tracked using the tracking link sent to the customer's email after dispatch.,Medium,Direct
+313,What should I know about warranty period?,Warranty,WAR001,Products are covered by a 12-month warranty from the date of purchase.,Easy,Conversational
+314,How does the payment failure policy work?,Payments,PAY002,"If a payment fails, customers should check their payment details and try the transaction again.",Medium,Paraphrased
+315,I have a question about refund payment method. What is the policy?,Refunds,REF002,Refunds are normally returned to the original payment method used for the purchase.,Medium,Policy-focused
+316,Could you give me more information about order cancellation?,Orders,ORD001,Orders can be cancelled before they are dispatched.,Hard,Conversational
+317,What are the rules regarding order status?,Orders,ORD003,Customers can check their order status using the order tracking link provided after dispatch.,Medium,Direct
+318,What are the requirements for order modification?,Orders,ORD002,Order details cannot normally be changed after an order has been placed. Customers should contact support as soon as possible if a correction is required.,Hard,Policy-focused
+319,What are the rules regarding accepted payment methods?,Payments,PAY001,"We accept Visa, Mastercard, American Express and PayPal.",Medium,Direct
+320,What information do you have about refund processing time?,Refunds,REF001,Refunds are processed within 5 to 7 business days after the return is approved.,Medium,Conversational
+321,What are the rules regarding contact support?,Customer Support,SUP001,Customers can contact support through the customer support form for assistance with their account or orders.,Medium,Direct
+322,I need help with contact support. What does the policy say?,Customer Support,SUP001,Customers can contact support through the customer support form for assistance with their account or orders.,Easy,Policy-focused
+323,Please explain the company's email address change policy.,Account,ACC002,Customers can request an email address change through customer support after verifying their account.,Hard,Paraphrased
+324,What are the rules regarding return window?,Returns,RET001,Items can be returned within 30 days of delivery.,Medium,Direct
+325,How does the standard delivery policy work?,Shipping,SHP001,Standard delivery usually takes 3 to 5 business days.,Medium,Paraphrased
+326,What is the policy for warranty period?,Warranty,WAR001,Products are covered by a 12-month warranty from the date of purchase.,Easy,Direct
+327,What do I need to know regarding subscription cancellation?,Subscriptions,SUB001,Customers can cancel their subscription through their account settings before the next billing date.,Medium,Direct
+328,Can you explain the subscription renewal policy?,Subscriptions,SUB002,Subscriptions automatically renew on the scheduled billing date unless cancelled beforehand.,Easy,Paraphrased
+329,What are the requirements for accepted payment methods?,Payments,PAY001,"We accept Visa, Mastercard, American Express and PayPal.",Hard,Policy-focused
+330,Please explain the company's order status policy.,Orders,ORD003,Customers can check their order status using the order tracking link provided after dispatch.,Hard,Paraphrased
+331,What do I need to know regarding subscription renewal?,Subscriptions,SUB002,Subscriptions automatically renew on the scheduled billing date unless cancelled beforehand.,Medium,Direct
+332,Please explain the company's password reset policy.,Account,ACC001,Customers can reset their password by selecting 'Forgot password' on the login page and following the instructions sent to their email.,Hard,Paraphrased
+333,Could you give me more information about product availability?,Products,PRO001,Product availability is shown on the product page and may change depending on inventory levels.,Hard,Conversational
+334,How does the company handle warranty period?,Warranty,WAR001,Products are covered by a 12-month warranty from the date of purchase.,Hard,Policy-focused
+335,Could you tell me about complaints?,Customer Support,SUP002,Customers can submit complaints through the customer support form.,Easy,Policy-focused
+336,Could you tell me about order cancellation?,Orders,ORD001,Orders can be cancelled before they are dispatched.,Easy,Policy-focused
+337,Can you explain the warranty claims policy?,Warranty,WAR002,Warranty claims can be submitted through customer support with proof of purchase.,Easy,Paraphrased
+338,What information do you have about invoice requests?,Invoices,INV002,Customers can contact support if they require assistance locating an invoice.,Medium,Conversational
+339,What do I need to know regarding return window?,Returns,RET001,Items can be returned within 30 days of delivery.,Medium,Direct
+340,Can you explain the account closure policy?,Account,ACC003,Customers can request account closure through customer support.,Easy,Paraphrased
+341,What should I know about invoice availability?,Invoices,INV001,Invoices are available through the customer's account after an order has been completed.,Easy,Conversational
+342,I need help with email address change. What does the policy say?,Account,ACC002,Customers can request an email address change through customer support after verifying their account.,Easy,Policy-focused
+343,How does the accepted payment methods policy work?,Payments,PAY001,"We accept Visa, Mastercard, American Express and PayPal.",Medium,Paraphrased
+344,Can you tell me what the company policy says about return window?,Returns,RET001,Items can be returned within 30 days of delivery.,Medium,Policy-focused
+345,What information do you have about product information?,Products,PRO002,Customers can find product specifications and dimensions on the relevant product page.,Medium,Conversational
+346,What are the rules regarding email address change?,Account,ACC002,Customers can request an email address change through customer support after verifying their account.,Medium,Direct
+347,Can you explain the express delivery policy?,Shipping,SHP002,Express delivery usually takes 1 to 2 business days after dispatch.,Easy,Paraphrased
+348,What should I know about standard delivery?,Shipping,SHP001,Standard delivery usually takes 3 to 5 business days.,Easy,Conversational
+349,What should I know about order status?,Orders,ORD003,Customers can check their order status using the order tracking link provided after dispatch.,Easy,Conversational
+350,Could you give me more information about warranty claims?,Warranty,WAR002,Warranty claims can be submitted through customer support with proof of purchase.,Hard,Conversational
+351,Could you give me more information about promo codes?,Discounts,DIS001,Valid promotional codes can be entered during checkout before the order is completed.,Hard,Conversational
+352,What are the rules regarding password reset?,Account,ACC001,Customers can reset their password by selecting 'Forgot password' on the login page and following the instructions sent to their email.,Medium,Direct
+353,What are the rules regarding invoice requests?,Invoices,INV002,Customers can contact support if they require assistance locating an invoice.,Medium,Direct
+354,Could you give me more information about order modification?,Orders,ORD002,Order details cannot normally be changed after an order has been placed. Customers should contact support as soon as possible if a correction is required.,Hard,Conversational
+355,What do I need to know regarding international tracking?,International Orders,INT002,International orders can be tracked using the tracking information provided after dispatch.,Medium,Direct
+356,What are the rules regarding account closure?,Account,ACC003,Customers can request account closure through customer support.,Medium,Direct
+357,What are the rules regarding warranty claims?,Warranty,WAR002,Warranty claims can be submitted through customer support with proof of purchase.,Medium,Direct
+358,I need help with product information. What does the policy say?,Products,PRO002,Customers can find product specifications and dimensions on the relevant product page.,Easy,Policy-focused
+359,Could you give me more information about refund payment method?,Refunds,REF002,Refunds are normally returned to the original payment method used for the purchase.,Hard,Conversational
+360,What is the policy for invoice availability?,Invoices,INV001,Invoices are available through the customer's account after an order has been completed.,Easy,Direct
+361,I need help with refund processing time. What does the policy say?,Refunds,REF001,Refunds are processed within 5 to 7 business days after the return is approved.,Easy,Policy-focused
+362,What should I know about express delivery?,Shipping,SHP002,Express delivery usually takes 1 to 2 business days after dispatch.,Easy,Conversational
+363,What is the policy for refund processing time?,Refunds,REF001,Refunds are processed within 5 to 7 business days after the return is approved.,Easy,Direct
+364,Can you tell me what the company policy says about damaged items?,Returns,RET003,Customers should contact support promptly if an item arrives damaged.,Medium,Policy-focused
+365,What should I know about international tracking?,International Orders,INT002,International orders can be tracked using the tracking information provided after dispatch.,Easy,Conversational
+366,Can you tell me what the company policy says about order cancellation?,Orders,ORD001,Orders can be cancelled before they are dispatched.,Medium,Policy-focused
+367,Please explain the company's promo codes policy.,Discounts,DIS001,Valid promotional codes can be entered during checkout before the order is completed.,Hard,Paraphrased
+368,What are the rules regarding international delivery?,International Orders,INT001,International delivery times vary depending on the destination and shipping service selected.,Medium,Direct
+369,Could you tell me about express delivery?,Shipping,SHP002,Express delivery usually takes 1 to 2 business days after dispatch.,Easy,Policy-focused
+370,What is the policy for product compatibility?,Products,PRO003,Customers should check the compatibility information provided on the product page before purchasing.,Easy,Direct
+371,How does the company handle order cancellation?,Orders,ORD001,Orders can be cancelled before they are dispatched.,Hard,Policy-focused
+372,How does the refund payment method policy work?,Refunds,REF002,Refunds are normally returned to the original payment method used for the purchase.,Medium,Paraphrased
+373,What do I need to know regarding order status?,Orders,ORD003,Customers can check their order status using the order tracking link provided after dispatch.,Medium,Direct
+374,Can you explain the international delivery policy?,International Orders,INT001,International delivery times vary depending on the destination and shipping service selected.,Easy,Paraphrased
+375,What information do you have about invoice availability?,Invoices,INV001,Invoices are available through the customer's account after an order has been completed.,Medium,Conversational
+376,How does the email address change policy work?,Account,ACC002,Customers can request an email address change through customer support after verifying their account.,Medium,Paraphrased
+377,I have a question about product availability. What is the policy?,Products,PRO001,Product availability is shown on the product page and may change depending on inventory levels.,Medium,Policy-focused
+378,Can you explain the international tracking policy?,International Orders,INT002,International orders can be tracked using the tracking information provided after dispatch.,Easy,Paraphrased
+379,Could you tell me about invoice availability?,Invoices,INV001,Invoices are available through the customer's account after an order has been completed.,Easy,Policy-focused
+380,What information do you have about discount restrictions?,Discounts,DIS002,Promotional discounts may have specific terms and conditions that should be checked before use.,Medium,Conversational
+381,Please explain the company's account closure policy.,Account,ACC003,Customers can request account closure through customer support.,Hard,Paraphrased
+382,Could you give me more information about password reset?,Account,ACC001,Customers can reset their password by selecting 'Forgot password' on the login page and following the instructions sent to their email.,Hard,Conversational
+383,What should I know about email address change?,Account,ACC002,Customers can request an email address change through customer support after verifying their account.,Easy,Conversational
+384,What do I need to know regarding product information?,Products,PRO002,Customers can find product specifications and dimensions on the relevant product page.,Medium,Direct
+385,How does the company handle invoice requests?,Invoices,INV002,Customers can contact support if they require assistance locating an invoice.,Hard,Policy-focused
+386,Please explain the company's warranty period policy.,Warranty,WAR001,Products are covered by a 12-month warranty from the date of purchase.,Hard,Paraphrased
+387,How does the company handle international tracking?,International Orders,INT002,International orders can be tracked using the tracking information provided after dispatch.,Hard,Policy-focused
+388,Do you offer same-day delivery?,Unsupported,,The available company policy does not contain enough information to answer this question.,Hard,Unsupported
+389,I need help with product compatibility. What does the policy say?,Products,PRO003,Customers should check the compatibility information provided on the product page before purchasing.,Easy,Policy-focused
+390,What are the rules regarding subscription cancellation?,Subscriptions,SUB001,Customers can cancel their subscription through their account settings before the next billing date.,Medium,Direct
+391,How does the company handle warranty claims?,Warranty,WAR002,Warranty claims can be submitted through customer support with proof of purchase.,Hard,Policy-focused
+392,How does the password reset policy work?,Account,ACC001,Customers can reset their password by selecting 'Forgot password' on the login page and following the instructions sent to their email.,Medium,Paraphrased
+393,Please explain the company's refund payment method policy.,Refunds,REF002,Refunds are normally returned to the original payment method used for the purchase.,Hard,Paraphrased
+394,What are the requirements for order status?,Orders,ORD003,Customers can check their order status using the order tracking link provided after dispatch.,Hard,Policy-focused
+395,What information do you have about email address change?,Account,ACC002,Customers can request an email address change through customer support after verifying their account.,Medium,Conversational
+396,What do I need to know regarding payment failure?,Payments,PAY002,"If a payment fails, customers should check their payment details and try the transaction again.",Medium,Direct
+397,I have a question about product compatibility. What is the policy?,Products,PRO003,Customers should check the compatibility information provided on the product page before purchasing.,Medium,Policy-focused
+398,Could you tell me about warranty claims?,Warranty,WAR002,Warranty claims can be submitted through customer support with proof of purchase.,Easy,Policy-focused
+399,What is the policy for original packaging?,Returns,RET002,Items should normally be returned in their original packaging to be eligible for a return.,Easy,Direct
+400,Can you tell me what the company policy says about standard delivery?,Shipping,SHP001,Standard delivery usually takes 3 to 5 business days.,Medium,Policy-focused
+401,How does the company handle contact support?,Customer Support,SUP001,Customers can contact support through the customer support form for assistance with their account or orders.,Hard,Policy-focused
+402,Can you explain the order cancellation policy?,Orders,ORD001,Orders can be cancelled before they are dispatched.,Easy,Paraphrased
+403,What is the policy for invoice requests?,Invoices,INV002,Customers can contact support if they require assistance locating an invoice.,Easy,Direct
+404,Could you give me more information about international tracking?,International Orders,INT002,International orders can be tracked using the tracking information provided after dispatch.,Hard,Conversational
+405,Could you tell me about standard delivery?,Shipping,SHP001,Standard delivery usually takes 3 to 5 business days.,Easy,Policy-focused
+406,What are the rules regarding order tracking?,Shipping,SHP003,Orders can be tracked using the tracking link sent to the customer's email after dispatch.,Medium,Direct
+407,What do I need to know regarding password reset?,Account,ACC001,Customers can reset their password by selecting 'Forgot password' on the login page and following the instructions sent to their email.,Medium,Direct
+408,Could you tell me about order status?,Orders,ORD003,Customers can check their order status using the order tracking link provided after dispatch.,Easy,Policy-focused
+409,Can you tell me what the company policy says about warranty claims?,Warranty,WAR002,Warranty claims can be submitted through customer support with proof of purchase.,Medium,Policy-focused
+410,How does the subscription renewal policy work?,Subscriptions,SUB002,Subscriptions automatically renew on the scheduled billing date unless cancelled beforehand.,Medium,Paraphrased
+411,Can you explain the return window policy?,Returns,RET001,Items can be returned within 30 days of delivery.,Easy,Paraphrased
+412,I have a question about discount restrictions. What is the policy?,Discounts,DIS002,Promotional discounts may have specific terms and conditions that should be checked before use.,Medium,Policy-focused
+413,How does the company handle international delivery?,International Orders,INT001,International delivery times vary depending on the destination and shipping service selected.,Hard,Policy-focused
+414,What information do you have about standard delivery?,Shipping,SHP001,Standard delivery usually takes 3 to 5 business days.,Medium,Conversational
+415,What is the policy for subscription cancellation?,Subscriptions,SUB001,Customers can cancel their subscription through their account settings before the next billing date.,Easy,Direct
+416,I have a question about warranty claims. What is the policy?,Warranty,WAR002,Warranty claims can be submitted through customer support with proof of purchase.,Medium,Policy-focused
+417,Can you explain the warranty period policy?,Warranty,WAR001,Products are covered by a 12-month warranty from the date of purchase.,Easy,Paraphrased
+418,What are the requirements for order cancellation?,Orders,ORD001,Orders can be cancelled before they are dispatched.,Hard,Policy-focused
+419,What is the policy for promo codes?,Discounts,DIS001,Valid promotional codes can be entered during checkout before the order is completed.,Easy,Direct
+420,What are the requirements for order tracking?,Shipping,SHP003,Orders can be tracked using the tracking link sent to the customer's email after dispatch.,Hard,Policy-focused
+421,Could you give me more information about contact support?,Customer Support,SUP001,Customers can contact support through the customer support form for assistance with their account or orders.,Hard,Conversational
+422,I need help with product availability. What does the policy say?,Products,PRO001,Product availability is shown on the product page and may change depending on inventory levels.,Easy,Policy-focused
+423,Can you explain the accepted payment methods policy?,Payments,PAY001,"We accept Visa, Mastercard, American Express and PayPal.",Easy,Paraphrased
+424,What are the requirements for promo codes?,Discounts,DIS001,Valid promotional codes can be entered during checkout before the order is completed.,Hard,Policy-focused
+425,Do you have physical stores in London?,Unsupported,,The available company policy does not contain enough information to answer this question.,Hard,Unsupported
+426,How does the company handle damaged items?,Returns,RET003,Customers should contact support promptly if an item arrives damaged.,Hard,Policy-focused
+427,How does the product compatibility policy work?,Products,PRO003,Customers should check the compatibility information provided on the product page before purchasing.,Medium,Paraphrased
+428,How does the international tracking policy work?,International Orders,INT002,International orders can be tracked using the tracking information provided after dispatch.,Medium,Paraphrased
+429,Could you tell me about promo codes?,Discounts,DIS001,Valid promotional codes can be entered during checkout before the order is completed.,Easy,Policy-focused
+430,I need help with warranty period. What does the policy say?,Warranty,WAR001,Products are covered by a 12-month warranty from the date of purchase.,Easy,Policy-focused
+431,I have a question about standard delivery. What is the policy?,Shipping,SHP001,Standard delivery usually takes 3 to 5 business days.,Medium,Policy-focused
+432,I need help with subscription renewal. What does the policy say?,Subscriptions,SUB002,Subscriptions automatically renew on the scheduled billing date unless cancelled beforehand.,Easy,Policy-focused
+433,What are the rules regarding standard delivery?,Shipping,SHP001,Standard delivery usually takes 3 to 5 business days.,Medium,Direct
+434,I have a question about accepted payment methods. What is the policy?,Payments,PAY001,"We accept Visa, Mastercard, American Express and PayPal.",Medium,Policy-focused
+435,I have a question about payment failure. What is the policy?,Payments,PAY002,"If a payment fails, customers should check their payment details and try the transaction again.",Medium,Policy-focused
+436,Do you have a loyalty points programme?,Unsupported,,The available company policy does not contain enough information to answer this question.,Hard,Unsupported
+437,What information do you have about payment failure?,Payments,PAY002,"If a payment fails, customers should check their payment details and try the transaction again.",Medium,Conversational
+438,Could you tell me about accepted payment methods?,Payments,PAY001,"We accept Visa, Mastercard, American Express and PayPal.",Easy,Policy-focused
+439,What are the requirements for standard delivery?,Shipping,SHP001,Standard delivery usually takes 3 to 5 business days.,Hard,Policy-focused
+440,I need help with standard delivery. What does the policy say?,Shipping,SHP001,Standard delivery usually takes 3 to 5 business days.,Easy,Policy-focused
+441,How does the company handle discount restrictions?,Discounts,DIS002,Promotional discounts may have specific terms and conditions that should be checked before use.,Hard,Policy-focused
+442,What do I need to know regarding account closure?,Account,ACC003,Customers can request account closure through customer support.,Medium,Direct
+443,Could you give me more information about warranty period?,Warranty,WAR001,Products are covered by a 12-month warranty from the date of purchase.,Hard,Conversational
+444,How does the order modification policy work?,Orders,ORD002,Order details cannot normally be changed after an order has been placed. Customers should contact support as soon as possible if a correction is required.,Medium,Paraphrased
+445,What are the requirements for product compatibility?,Products,PRO003,Customers should check the compatibility information provided on the product page before purchasing.,Hard,Policy-focused
+446,What do I need to know regarding refund payment method?,Refunds,REF002,Refunds are normally returned to the original payment method used for the purchase.,Medium,Direct
+447,How does the product availability policy work?,Products,PRO001,Product availability is shown on the product page and may change depending on inventory levels.,Medium,Paraphrased
+448,Can you tell me what the company policy says about international delivery?,International Orders,INT001,International delivery times vary depending on the destination and shipping service selected.,Medium,Policy-focused
+449,Please explain the company's payment failure policy.,Payments,PAY002,"If a payment fails, customers should check their payment details and try the transaction again.",Hard,Paraphrased
+450,What do I need to know regarding contact support?,Customer Support,SUP001,Customers can contact support through the customer support form for assistance with their account or orders.,Medium,Direct
+451,Can you tell me what the company policy says about product information?,Products,PRO002,Customers can find product specifications and dimensions on the relevant product page.,Medium,Policy-focused
+452,Can you tell me what the company policy says about invoice availability?,Invoices,INV001,Invoices are available through the customer's account after an order has been completed.,Medium,Policy-focused
+453,What are the requirements for discount restrictions?,Discounts,DIS002,Promotional discounts may have specific terms and conditions that should be checked before use.,Hard,Policy-focused
+454,What should I know about warranty claims?,Warranty,WAR002,Warranty claims can be submitted through customer support with proof of purchase.,Easy,Conversational
+455,Can you tell me what the company policy says about product compatibility?,Products,PRO003,Customers should check the compatibility information provided on the product page before purchasing.,Medium,Policy-focused
+456,How does the company handle refund processing time?,Refunds,REF001,Refunds are processed within 5 to 7 business days after the return is approved.,Hard,Policy-focused
+457,What do I need to know regarding damaged items?,Returns,RET003,Customers should contact support promptly if an item arrives damaged.,Medium,Direct
+458,Can you explain the refund payment method policy?,Refunds,REF002,Refunds are normally returned to the original payment method used for the purchase.,Easy,Paraphrased
+459,How does the company handle subscription cancellation?,Subscriptions,SUB001,Customers can cancel their subscription through their account settings before the next billing date.,Hard,Policy-focused
+460,I have a question about return window. What is the policy?,Returns,RET001,Items can be returned within 30 days of delivery.,Medium,Policy-focused
+461,Could you give me more information about subscription renewal?,Subscriptions,SUB002,Subscriptions automatically renew on the scheduled billing date unless cancelled beforehand.,Hard,Conversational
+462,Could you give me more information about order tracking?,Shipping,SHP003,Orders can be tracked using the tracking link sent to the customer's email after dispatch.,Hard,Conversational
+463,Can you tell me what the company policy says about international tracking?,International Orders,INT002,International orders can be tracked using the tracking information provided after dispatch.,Medium,Policy-focused
+464,What is the policy for discount restrictions?,Discounts,DIS002,Promotional discounts may have specific terms and conditions that should be checked before use.,Easy,Direct
+465,Could you tell me about email address change?,Account,ACC002,Customers can request an email address change through customer support after verifying their account.,Easy,Policy-focused
+466,Can you explain the damaged items policy?,Returns,RET003,Customers should contact support promptly if an item arrives damaged.,Easy,Paraphrased
+467,Can I exchange an item for a different colour?,Unsupported,,The available company policy does not contain enough information to answer this question.,Hard,Unsupported
+468,What are the rules regarding order modification?,Orders,ORD002,Order details cannot normally be changed after an order has been placed. Customers should contact support as soon as possible if a correction is required.,Medium,Direct
+469,Can you tell me what the company policy says about payment failure?,Payments,PAY002,"If a payment fails, customers should check their payment details and try the transaction again.",Medium,Policy-focused
+470,Please explain the company's express delivery policy.,Shipping,SHP002,Express delivery usually takes 1 to 2 business days after dispatch.,Hard,Paraphrased
+471,Can you explain the original packaging policy?,Returns,RET002,Items should normally be returned in their original packaging to be eligible for a return.,Easy,Paraphrased
+472,What is the policy for product availability?,Products,PRO001,Product availability is shown on the product page and may change depending on inventory levels.,Easy,Direct
+473,I need help with subscription cancellation. What does the policy say?,Subscriptions,SUB001,Customers can cancel their subscription through their account settings before the next billing date.,Easy,Policy-focused
+474,What is the policy for international delivery?,International Orders,INT001,International delivery times vary depending on the destination and shipping service selected.,Easy,Direct
+475,Could you give me more information about return window?,Returns,RET001,Items can be returned within 30 days of delivery.,Hard,Conversational

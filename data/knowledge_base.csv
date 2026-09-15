@@ -1,0 +1,32 @@
+policy_id,category,title,content
+ORD001,Orders,Order Cancellation,Orders can be cancelled before they are dispatched.
+ORD002,Orders,Order Modification,Order details cannot normally be changed after an order has been placed. Customers should contact support as soon as possible if a correction is required.
+ORD003,Orders,Order Status,Customers can check their order status using the order tracking link provided after dispatch.
+SHP001,Shipping,Standard Delivery,Standard delivery usually takes 3 to 5 business days.
+SHP002,Shipping,Express Delivery,Express delivery usually takes 1 to 2 business days after dispatch.
+SHP003,Shipping,Order Tracking,Orders can be tracked using the tracking link sent to the customer's email after dispatch.
+RET001,Returns,Return Window,Items can be returned within 30 days of delivery.
+RET002,Returns,Original Packaging,Items should normally be returned in their original packaging to be eligible for a return.
+RET003,Returns,Damaged Items,Customers should contact support promptly if an item arrives damaged.
+REF001,Refunds,Refund Processing Time,Refunds are processed within 5 to 7 business days after the return is approved.
+REF002,Refunds,Refund Payment Method,Refunds are normally returned to the original payment method used for the purchase.
+PAY001,Payments,Accepted Payment Methods,"We accept Visa, Mastercard, American Express and PayPal."
+PAY002,Payments,Payment Failure,"If a payment fails, customers should check their payment details and try the transaction again."
+ACC001,Account,Password Reset,Customers can reset their password by selecting 'Forgot password' on the login page and following the instructions sent to their email.
+ACC002,Account,Email Address Change,Customers can request an email address change through customer support after verifying their account.
+ACC003,Account,Account Closure,Customers can request account closure through customer support.
+WAR001,Warranty,Warranty Period,Products are covered by a 12-month warranty from the date of purchase.
+WAR002,Warranty,Warranty Claims,Warranty claims can be submitted through customer support with proof of purchase.
+PRO001,Products,Product Availability,Product availability is shown on the product page and may change depending on inventory levels.
+PRO002,Products,Product Information,Customers can find product specifications and dimensions on the relevant product page.
+PRO003,Products,Product Compatibility,Customers should check the compatibility information provided on the product page before purchasing.
+DIS001,Discounts,Promo Codes,Valid promotional codes can be entered during checkout before the order is completed.
+DIS002,Discounts,Discount Restrictions,Promotional discounts may have specific terms and conditions that should be checked before use.
+SUB001,Subscriptions,Subscription Cancellation,Customers can cancel their subscription through their account settings before the next billing date.
+SUB002,Subscriptions,Subscription Renewal,Subscriptions automatically renew on the scheduled billing date unless cancelled beforehand.
+SUP001,Customer Support,Contact Support,Customers can contact support through the customer support form for assistance with their account or orders.
+SUP002,Customer Support,Complaints,Customers can submit complaints through the customer support form.
+INV001,Invoices,Invoice Availability,Invoices are available through the customer's account after an order has been completed.
+INV002,Invoices,Invoice Requests,Customers can contact support if they require assistance locating an invoice.
+INT001,International Orders,International Delivery,International delivery times vary depending on the destination and shipping service selected.
+INT002,International Orders,International Tracking,International orders can be tracked using the tracking information provided after dispatch.

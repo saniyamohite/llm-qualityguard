@@ -1,450 +1,402 @@
-# LLM QualityGuard
+# LLM QualityGuard — Automated LLM Evaluation & Data Quality Platform
 
-## Automated LLM Evaluation & Data Quality Platform
-
-LLM QualityGuard is an end-to-end AI evaluation platform designed to measure the **quality, reliability, retrieval accuracy, and grounding of Large Language Model (LLM) responses**.
-
-The project combines semantic retrieval, Retrieval-Augmented Generation (RAG), LLM evaluation, hallucination detection, SQL analytics, automated testing, workflow orchestration, Docker, and Power BI.
-
-The goal is to move beyond simply generating an AI response and instead build a measurable framework for answering:
-
-> **Can we trust this AI response, and can we prove why?**
+An end-to-end platform for evaluating LLM response quality, semantic retrieval, grounding, hallucination risk, and data quality using Python, SQL, RAG, automated testing, Airflow, Docker, and Power BI.
 
 ---
 
 ## Project Overview
 
-Large Language Models can generate fluent and convincing responses that may still be incorrect, incomplete, or unsupported by trusted information.
+LLM QualityGuard is a data and AI evaluation platform designed to measure the reliability and quality of Large Language Model (LLM) responses.
 
-QualityGuard addresses this problem by introducing an evaluation pipeline that measures both:
+The project combines:
 
-### Retrieval Quality
+* LLM evaluation
+* Semantic retrieval
+* Retrieval-Augmented Generation (RAG)
+* Data quality validation
+* Hallucination detection
+* SQL analytics
+* Automated testing
+* Workflow orchestration
+* Dashboard-ready analytics
 
-Can the system retrieve the correct company policy for a customer question?
+The system was designed around a customer-support knowledge base containing company policies and customer questions.
 
-### Answer Quality
+The goal was not simply to generate answers, but to determine whether an AI system:
 
-Does the generated LLM response correctly answer the question?
-
-### Grounding
-
-Is the generated answer supported by the retrieved company policy?
-
-The platform therefore evaluates AI quality at multiple stages rather than relying on a single overall score.
+1. retrieves the correct information,
+2. provides a grounded answer,
+3. avoids unsupported claims,
+4. produces measurable quality results, and
+5. can be monitored through an automated data pipeline.
 
 ---
 
-## System Architecture
+## Architecture
 
 ```text
-                    Customer Question
-                           │
-                           ▼
-                  Question Embedding
-                           │
-                           ▼
-                   Semantic Retrieval
-                           │
-                           ▼
-                  Relevant Policy
-                           │
-                           ▼
-                    LLM / Gemini
-                           │
-                           ▼
-                   Generated Answer
-                           │
-              ┌────────────┴────────────┐
-              ▼                         ▼
-       Answer Evaluation        Hallucination Check
-              │                         │
-              └────────────┬────────────┘
-                           ▼
-                    Quality Results
-                           │
-                           ▼
-                      DuckDB / SQL
-                           │
-                           ▼
-                     Power BI
+Customer Question
+        ↓
+Question / Evaluation Dataset
+        ↓
+Semantic Embedding
+        ↓
+Policy Retrieval
+        ↓
+Similarity Threshold
+        ↓
+Grounded LLM Response
+        ↓
+Hallucination / Faithfulness Checks
+        ↓
+LLM Evaluation
+        ↓
+SQL Evaluation Database
+        ↓
+Airflow Orchestration
+        ↓
+Power BI Analytics
 ```
 
 ---
 
 ## Key Results
 
-The evaluation dataset contained:
+The evaluation dataset contains:
 
-| Metric                               |           Result |
-| ------------------------------------ | ---------------: |
-| Total evaluation questions           |          **475** |
-| Supported questions                  |          **465** |
-| Unsupported challenge questions      |           **10** |
-| Company policies                     |           **31** |
-| Policy categories                    |           **13** |
-| Unique question texts                |          **475** |
-| Final retrieval threshold            |         **0.50** |
-| Supported-question coverage          |       **88.82%** |
-| Accuracy when retrieval was accepted |       **88.86%** |
-| Unsupported-query rejection          |         **100%** |
-| Threshold rejections                 |           **52** |
-| Wrong accepted retrievals            |           **46** |
-| Automated tests                      | **4 / 4 passed** |
+* **475 total questions**
+* **465 supported questions**
+* **10 unsupported challenge questions**
+* **31 policies**
+* **13 categories**
+* **0 duplicate questions**
+* **0 questions mapped to multiple policies**
 
-### Important interpretation
+### Final Retrieval Performance
 
-The **88.86% figure represents retrieval accuracy among accepted supported questions**.
+Using a similarity threshold of **0.50**:
 
-It should not be interpreted as overall LLM answer accuracy.
+| Metric                             |     Result |
+| ---------------------------------- | ---------: |
+| Supported questions                |        465 |
+| Accepted supported queries         |        413 |
+| Retrieval coverage                 | **88.82%** |
+| Accuracy among accepted retrievals | **88.86%** |
+| Unsupported questions rejected     |   **100%** |
+| Unsupported false-positive rate    |     **0%** |
+| Threshold rejections               |         52 |
+| Wrong accepted retrievals          |         46 |
 
-The distinction is important because the project evaluates retrieval and generation as separate stages.
+The threshold was selected to balance retrieval accuracy with protection against unsupported questions.
 
 ---
 
 ## Retrieval Evaluation
 
-The initial semantic retrieval system achieved:
+Semantic retrieval was implemented using the `all-MiniLM-L6-v2` sentence-transformer model.
+
+The initial retrieval system achieved:
 
 * **84.30% retrieval accuracy**
 * **0.6232 average similarity**
-* **15.70% retrieval error rate**
+* **15.70% retrieval error**
 
-A threshold optimisation experiment was then performed.
+The evaluation exposed several difficult policy-level distinctions, particularly where policies used similar terminology.
 
-The final operating threshold was set to:
+Examples included confusion between:
 
-```text
-0.50
-```
+* Invoice policies
+* Return policies
+* Warranty policies
+* Shipping policies
+* Payment policies
 
-At this threshold:
-
-* 88.82% of supported questions were accepted.
-* 88.86% of accepted supported questions retrieved the correct policy.
-* 100% of unsupported challenge questions were rejected.
-
-This provided a practical balance between retrieval coverage, precision, and unsupported-query rejection.
+This failure analysis was used to investigate threshold behaviour and improve retrieval acceptance criteria.
 
 ---
 
-## Retrieval Failure Analysis
+## Threshold Analysis
 
-The final evaluation identified **98 supported-question failures**.
+Different similarity thresholds were evaluated before selecting the final threshold.
 
-These were divided into:
+| Threshold |   Coverage | Accepted Accuracy | Unsupported FP |
+| --------: | ---------: | ----------------: | -------------: |
+|      0.30 |    100.00% |            84.30% |            90% |
+|      0.35 |    100.00% |            84.30% |            80% |
+|      0.40 |     98.49% |            85.59% |            30% |
+|      0.45 |     95.48% |            86.71% |            30% |
+|  **0.50** | **88.82%** |        **88.86%** |         **0%** |
+|      0.55 |     77.20% |            89.42% |              — |
+|      0.60 |     62.15% |            91.00% |              — |
+|      0.65 |     43.66% |            92.61% |              — |
+|      0.70 |     22.58% |            92.38% |              — |
+|      0.75 |      7.53% |              100% |              — |
 
-```text
-52  Threshold Rejections
-46  Wrong Accepted Retrievals
-```
-
-### Threshold Rejections
-
-These occurred when a supported question produced a similarity score below the operating threshold.
-
-This suggests potential improvements such as:
-
-* query rewriting
-* better policy descriptions
-* improved embeddings
-* metadata-aware retrieval
-
-### Wrong Accepted Retrievals
-
-These occurred when the retrieved policy exceeded the threshold but was still incorrect.
-
-The largest policy confusion patterns were:
-
-| Expected | Retrieved | Cases |
-| -------- | --------- | ----: |
-| INV001   | INV002    |    15 |
-| SHP003   | INT002    |     8 |
-| WAR001   | WAR002    |     8 |
-| ORD003   | ORD001    |     4 |
-| PAY001   | REF002    |     4 |
-
-These results show that some retrieval errors are caused by **semantic overlap between closely related policies**, rather than simply low confidence.
+The **0.50 threshold** was selected because it eliminated unsupported false positives while retaining substantial supported-query coverage.
 
 ---
 
 ## Category-Level Performance
 
-Retrieval performance varied across categories.
+The final retrieval evaluation showed significant differences between policy categories.
 
-Some strong categories achieved 100% accuracy when an accepted retrieval was made:
+| Category             | Coverage | Accepted Accuracy |
+| -------------------- | -------: | ----------------: |
+| Invoices             |     100% |            50.00% |
+| Warranty             |   96.67% |            72.41% |
+| Shipping             |   82.22% |            78.38% |
+| Payments             |   90.00% |            85.19% |
+| Orders               |   93.33% |            85.71% |
+| Customer Support     |   93.33% |            89.29% |
+| Refunds              |     100% |            93.33% |
+| International Orders |   96.67% |              100% |
+| Products             |   71.11% |              100% |
+| Returns              |   53.33% |              100% |
+| Subscriptions        |     100% |              100% |
+| Discounts            |     100% |              100% |
+| Account              |     100% |              100% |
 
-* Account
-* Discounts
-* Subscriptions
-* International Orders
-* Products
-* Returns
+This highlighted an important data-quality and retrieval insight:
 
-However, Products and Returns also had lower coverage, meaning that many questions were rejected by the threshold before an incorrect retrieval could be accepted.
-
-The weakest accepted-retrieval accuracy was observed in:
-
-| Category | Accuracy When Accepted |
-| -------- | ---------------------: |
-| Invoices |             **50.00%** |
-| Warranty |             **72.41%** |
-| Shipping |             **78.38%** |
-| Payments |             **85.19%** |
-| Orders   |             **85.71%** |
-
-This demonstrates why a single global similarity threshold cannot solve every retrieval problem.
+> A single global similarity threshold does not perform equally well across every policy category.
 
 ---
 
 ## Difficulty Analysis
 
-Retrieval performance remained relatively stable across the three difficulty levels.
+Questions were also evaluated by difficulty.
 
-| Difficulty | Coverage | Accuracy When Accepted |
-| ---------- | -------: | ---------------------: |
-| Easy       |   87.10% |                 89.63% |
-| Medium     |   89.78% |                 88.62% |
-| Hard       |   89.52% |                 88.29% |
+| Difficulty | Coverage | Accepted Accuracy |
+| ---------- | -------: | ----------------: |
+| Easy       |   87.10% |            89.63% |
+| Medium     |   89.78% |            88.62% |
+| Hard       |   89.52% |            88.29% |
 
-The relatively small difference suggests that retrieval performance was influenced more by **policy overlap and question wording** than by the assigned difficulty level.
+The results show relatively stable retrieval performance across difficulty levels, while category-level analysis exposed much larger differences.
 
 ---
 
 ## Baseline LLM Evaluation
 
-Before introducing RAG, a baseline LLM evaluation was performed.
+A Gemini model was used for baseline LLM evaluation.
 
-Due to the Gemini API free-tier quota being reached during development, only a limited sample of **5 questions** could be evaluated.
+Only a controlled sample of five questions was successfully evaluated because the available API free-tier quota was limited.
 
-The sample produced:
+| Question | Score | Result |
+| -------- | ----: | ------ |
+| Q1       |     7 | PASS   |
+| Q2       |     9 | PASS   |
+| Q3       |     5 | FAIL   |
+| Q4       |     1 | FAIL   |
+| Q5       |    10 | PASS   |
 
-* **Average score: 6.4 / 10**
-* **PASS rate: 60%**
-* **FAIL rate: 40%**
+Sample results:
 
-These results are treated as a development sample rather than a statistically representative benchmark.
+* Average score: **6.4 / 10**
+* PASS rate: **60%**
+* FAIL rate: **40%**
 
-The baseline demonstrated that an LLM can produce fluent answers that are broader or partially inconsistent with an approved company policy.
-
-This motivated the introduction of retrieval grounding.
+This sample is intentionally reported as a controlled sample and should **not** be interpreted as statistically representative of the full evaluation dataset.
 
 ---
 
 ## RAG Implementation
 
-QualityGuard uses Retrieval-Augmented Generation to provide the LLM with trusted policy information before generating an answer.
+The project implements a Retrieval-Augmented Generation workflow.
 
-The RAG workflow is:
+### Retrieval
 
-```text
-Customer Question
-       ↓
-Question Embedding
-       ↓
-Policy Retrieval
-       ↓
-Similarity Check
-       ↓
-Retrieved Policy
-       ↓
-Grounded LLM Prompt
-       ↓
-Generated Answer
-```
+Customer questions are converted into semantic embeddings and compared against policy embeddings using cosine similarity.
 
-The LLM is instructed to:
+The highest-scoring policy is selected when its similarity exceeds the configured threshold.
 
-1. Use only the retrieved company policy.
-2. Avoid unsupported assumptions.
-3. Avoid using general knowledge to fill missing information.
-4. State when the available policy is insufficient.
-5. Provide a concise customer-facing response.
+### Grounded Generation
 
-A live RAG example successfully generated a grounded answer using retrieved policy information.
+The RAG prompt instructs the LLM to:
 
-Further live generation was limited by the Gemini API quota.
+* use only retrieved company policy,
+* avoid unsupported information,
+* provide a useful customer-facing answer,
+* state when the available policy does not contain sufficient information.
+
+This reduces the risk of the model generating answers that are not supported by the knowledge base.
 
 ---
 
 ## Hallucination Detection
 
-A lightweight hallucination-risk detector was implemented using lexical overlap between:
+A baseline lexical-overlap heuristic was implemented to identify potential hallucination risk.
 
-* the generated answer
-* the retrieved policy
+The detector compares the words contained in the generated answer with the retrieved policy.
 
-The detector produces:
+Results are classified as:
 
-```text
-LOW
-HIGH
-UNKNOWN
+* `LOW`
+* `HIGH`
+* `UNKNOWN`
+
+The current baseline uses a **50% lexical overlap threshold**.
+
+This is intentionally treated as a baseline rather than a production hallucination detector.
+
+### Limitations
+
+Lexical overlap can fail when:
+
+* the answer uses synonyms,
+* the answer contains incorrect claims using policy vocabulary,
+* the policy and answer have different sentence structures,
+* individual claims require deeper verification.
+
+Future versions would use semantic similarity, claim-level verification, LLM-as-a-judge evaluation, and human review.
+
+---
+
+## SQL Evaluation Database
+
+Evaluation results are structured for analytical querying using DuckDB.
+
+Example schema:
+
+```sql
+CREATE TABLE llm_evaluations (
+    evaluation_id INTEGER,
+    question TEXT,
+    category VARCHAR,
+    difficulty VARCHAR,
+    expected_answer TEXT,
+    actual_answer TEXT,
+    retrieved_policy TEXT,
+    retrieval_similarity DOUBLE,
+    retrieval_correct BOOLEAN,
+    score DOUBLE,
+    result VARCHAR,
+    hallucination VARCHAR,
+    faithfulness_score DOUBLE,
+    explanation TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 ```
 
-A grounded answer closely matching its retrieved policy was classified as:
+This provides a structured foundation for:
 
-```text
-LOW
-```
-
-This is intentionally treated as a **baseline heuristic**, rather than a definitive hallucination detector.
-
-A production implementation would combine:
-
-* semantic similarity
-* claim-level verification
-* contradiction detection
-* LLM-as-a-judge
-* human evaluation
+* quality monitoring,
+* retrieval analysis,
+* failure investigation,
+* model comparison,
+* dashboard reporting.
 
 ---
 
 ## Automated Testing
 
-The project uses `pytest` for deterministic regression testing.
+Pytest tests were created for core components including:
 
-The current test suite contains:
+* semantic retrieval,
+* similarity score validation,
+* hallucination detection,
+* evaluation scoring,
+* database-related functionality.
 
-```text
-4 tests
-4 passed
-0 failed
-```
-
-The tests verify:
-
-* policy retrieval
-* similarity score validity
-* low hallucination risk for grounded answers
-* high hallucination risk for unsupported answers
-
-Example result:
-
-```text
-....                                                                     [100%]
-
-4 passed in 1.58s
-```
-
-The automated tests provide regression protection for core functions.
-
-They do not replace the larger 475-question evaluation dataset, which measures actual retrieval behaviour.
-
----
-
-## SQL Analytics
-
-DuckDB is used to store and analyse evaluation results.
-
-The database schema includes fields for:
-
-* evaluation ID
-* question
-* category
-* difficulty
-* expected answer
-* actual answer
-* retrieved policy
-* retrieval similarity
-* retrieval correctness
-* evaluation score
-* hallucination status
-* faithfulness score
-* explanation
-* timestamp
-
-SQL views and KPI queries were created for downstream reporting.
-
----
-
-## Power BI
-
-The project prepares analytical datasets for Power BI reporting.
-
-The planned dashboard includes:
-
-```text
-┌─────────────────────────────────────────────────────────────┐
-│                 LLM QUALITYGUARD                            │
-│          Retrieval & AI Quality Monitoring                  │
-├────────────┬────────────┬────────────┬─────────────────────┤
-│  Coverage  │  Accepted  │  Retrieval │ Unsupported Queries │
-│   88.82%   │    413     │   88.86%   │       100%          │
-├────────────┴────────────┴────────────┴─────────────────────┤
-│ Retrieval Accuracy by Category                             │
-├──────────────────────────────┬──────────────────────────────┤
-│ Retrieval Status              │ Performance by Difficulty   │
-├──────────────────────────────┴──────────────────────────────┤
-│ Lowest Confidence Questions                                 │
-└─────────────────────────────────────────────────────────────┘
-```
-
-The dashboard is designed to help identify:
-
-* weak policy categories
-* retrieval failures
-* low-confidence queries
-* semantic confusion
-* unsupported questions
-* performance by difficulty
+The project uses automated tests to reduce regression risk as the evaluation pipeline evolves.
 
 ---
 
 ## Airflow Orchestration
 
-An Airflow DAG was created to represent the production workflow:
+An Airflow DAG has been created to represent the automated evaluation workflow.
 
 ```text
 Load Evaluation Data
         ↓
 Run Retrieval
         ↓
-Evaluate Retrieval
-        ↓
-Evaluate Answers
-        ↓
-Check Hallucination
-        ↓
-Save Results
+ ┌───────────────┐
+ ↓               ↓
+Evaluate       Evaluate
+Retrieval      Answers
+ ↓               ↓
+ └───────┬───────┘
+         ↓
+ Hallucination Check
+         ↓
+    Save Results
 ```
 
-The workflow structure allows future implementation of:
-
-* scheduled evaluation
-* retries
-* monitoring
-* logging
-* failure handling
-* automated result storage
+The DAG separates the major stages of the evaluation pipeline and provides a foundation for scheduled execution.
 
 ---
 
 ## Docker
 
-Docker configuration was created to provide a reproducible application environment.
+The project includes Docker configuration to provide a reproducible Python environment.
 
-The container installs the core project dependencies and runs the QualityGuard application.
+Files included:
 
-The project can therefore be extended from a notebook-based prototype into a containerised application.
+```text
+Dockerfile
+docker-compose.yml
+requirements.txt
+```
+
+The container runs the QualityGuard application through:
+
+```bash
+python -m src.main
+```
+
+---
+
+## Power BI Analytics
+
+The project is designed to expose evaluation results for Power BI reporting.
+
+The intended dashboard provides visibility into:
+
+* overall retrieval coverage,
+* retrieval accuracy,
+* unsupported-query rejection,
+* category performance,
+* difficulty performance,
+* threshold behaviour,
+* investigation-level failures.
+
+This allows technical evaluation results to be translated into business-readable monitoring metrics.
 
 ---
 
 ## Technology Stack
 
-| Technology                | Purpose                                    |
-| ------------------------- | ------------------------------------------ |
-| **Python**                | Core application and data processing       |
-| **Pandas**                | Dataset manipulation                       |
-| **NumPy**                 | Numerical processing                       |
-| **Gemini API**            | LLM generation and evaluation              |
-| **Sentence Transformers** | Text embeddings                            |
-| **Scikit-learn**          | Cosine similarity and retrieval evaluation |
-| **DuckDB**                | SQL analytics and result storage           |
-| **Pytest**                | Automated testing                          |
-| **Apache Airflow**        | Workflow orchestration                     |
-| **Docker**                | Reproducible deployment                    |
-| **Power BI**              | Analytics and visualisation                |
-| **GitHub**                | Version control and project documentation  |
+### Programming & Data
+
+* Python
+* SQL
+* Pandas
+* NumPy
+* DuckDB
+
+### AI / Machine Learning
+
+* Gemini API
+* Sentence Transformers
+* Semantic Embeddings
+* Retrieval-Augmented Generation (RAG)
+* LLM Evaluation
+* Hallucination Detection
+
+### Engineering
+
+* Pytest
+* Git
+* GitHub
+* Docker
+* Docker Compose
+* Apache Airflow
+
+### Analytics
+
+* Power BI
+* CSV-based analytical datasets
 
 ---
 
@@ -468,182 +420,146 @@ llm-qualityguard/
 │
 ├── src/
 │   ├── __init__.py
+│   ├── main.py
 │   │
 │   ├── rag/
 │   │   ├── __init__.py
 │   │   └── retrieval.py
 │   │
-│   ├── evaluation/
-│   │   ├── __init__.py
-│   │   └── evaluation.py
-│   │
-│   └── main.py
+│   └── evaluation/
+│       ├── __init__.py
+│       └── evaluation.py
 │
 ├── tests/
 │   ├── test_rag.py
 │   ├── test_evaluation.py
 │   └── test_database.py
 │
-├── airflow/
-│   └── dags/
-│       └── qualityguard_pipeline.py
-│
-└── dashboard/
-    ├── powerbi_dashboard_specification.md
-    ├── powerbi_overall_kpis.csv
-    ├── powerbi_category_performance.csv
-    ├── powerbi_difficulty_performance.csv
-    └── powerbi_investigation_table.csv
+└── airflow/
+    └── dags/
+        └── qualityguard_pipeline.py
 ```
 
 ---
 
 ## Limitations
 
-The current implementation is a prototype and has several limitations.
+The current implementation is a portfolio-scale prototype rather than a production deployment.
 
-### LLM API Capacity
+Key limitations include:
 
-The Gemini free-tier quota was reached during development.
+* API quota prevented full LLM generation and faithfulness evaluation across all questions.
+* The evaluation dataset is synthetic/programmatically generated.
+* Semantic retrieval can confuse policies with similar wording.
+* A single global similarity threshold is not optimal for every category.
+* Hallucination detection currently uses a lexical-overlap baseline.
+* LLM-as-a-judge evaluation can introduce evaluator bias.
+* DuckDB is used as a lightweight prototype database.
+* Airflow and Docker artifacts provide deployment foundations but are not a complete production environment.
+* Power BI currently relies on prepared analytical datasets rather than a live production refresh pipeline.
 
-Consequently, full-scale LLM generation, answer evaluation, and faithfulness evaluation could not be performed across all 475 questions.
-
-### Evaluation Dataset
-
-The dataset was programmatically generated from the policy knowledge base.
-
-It provides controlled benchmarking but is not equivalent to a large production dataset containing real customer conversations.
-
-### Retrieval Model
-
-The current retrieval system uses `all-MiniLM-L6-v2` embeddings.
-
-A single-vector semantic search approach can struggle with closely related policies.
-
-### Hallucination Detection
-
-The current lexical-overlap approach is a simple baseline and cannot reliably identify every factual contradiction or unsupported claim.
-
-### Production Infrastructure
-
-DuckDB, Airflow, Docker, and Power BI components currently demonstrate the intended architecture rather than representing a fully deployed production environment.
+These limitations are explicitly documented to distinguish demonstrated results from future production improvements.
 
 ---
 
 ## Future Improvements
 
-Potential future development includes:
+Planned improvements include:
 
-### Hybrid Retrieval
+1. Hybrid retrieval combining semantic and keyword search
+2. Cross-encoder reranking
+3. Query rewriting
+4. Metadata-aware retrieval
+5. Larger human-authored evaluation datasets
+6. Stronger claim-level hallucination detection
+7. Structured LLM-as-a-judge evaluation
+8. PostgreSQL production database
+9. Production Airflow pipeline
+10. Fully containerised production environment
+11. Automated Power BI monitoring
+12. Model comparison across multiple LLM providers
+13. CI/CD and automated regression testing
+14. Monitoring and retrieval/data drift detection
 
-Combine semantic vector search with keyword-based retrieval and metadata filtering.
+### Future Architecture
 
-### Cross-Encoder Reranking
-
-Retrieve multiple candidate policies and use a cross-encoder to select the best match.
-
-### Query Rewriting
-
-Transform conversational customer questions into retrieval-optimised queries.
-
-### Metadata-Aware Retrieval
-
-Use structured metadata such as category, intent, policy type, region, and effective date.
-
-### Stronger Hallucination Detection
-
-Introduce claim extraction, semantic entailment, contradiction detection, and structured verification.
-
-### Larger Human-Authored Evaluation Dataset
-
-Expand the benchmark with real anonymised queries, adversarial examples, ambiguous questions, and historical failure cases.
-
-### Model Comparison
-
-Evaluate multiple LLMs using the same benchmark to compare:
-
-* correctness
-* faithfulness
-* hallucination rate
-* latency
-* cost
-
-### CI/CD
-
-Use GitHub Actions to automatically run:
-
-* unit tests
-* data validation
-* retrieval regression tests
-* Docker build checks
-
-### Monitoring and Drift Detection
-
-Monitor retrieval similarity, failure rates, hallucination rates, query patterns, and model performance over time.
+```text
+Customer Query
+        ↓
+Query Understanding
+        ↓
+Hybrid Retrieval
+        ↓
+Reranking
+        ↓
+Grounded LLM Response
+        ↓
+Claim Verification
+        ↓
+LLM-as-a-Judge
+        ↓
+Quality Score
+        ↓
+PostgreSQL
+        ↓
+Airflow Monitoring
+        ↓
+Power BI Dashboard
+```
 
 ---
 
-## Key Learning Outcomes
+## Learning Outcomes
 
-This project provided practical experience across the full AI/data workflow:
+This project provided practical experience with:
 
-* Designing an evaluation dataset
-* Data quality validation
-* Semantic embeddings
-* Vector-style retrieval
-* Cosine similarity
-* Retrieval-Augmented Generation
-* LLM-as-a-judge evaluation
-* Hallucination detection
+* LLM evaluation
+* Data quality engineering
+* Semantic search
+* RAG pipelines
+* Embeddings
+* Similarity threshold optimisation
 * SQL analytics
-* Threshold optimisation
-* Error analysis
 * Automated testing
-* Airflow orchestration
+* API integration
+* Workflow orchestration
 * Dockerisation
-* Power BI reporting
-* AI system limitations and evaluation methodology
+* Business intelligence
+* Failure analysis
+* AI system reliability
+
+The project also demonstrates the importance of evaluating **data pipelines and AI systems together**, rather than treating LLM output quality as a purely modelling problem.
 
 ---
 
 ## Final Takeaway
 
-QualityGuard demonstrates that evaluating an AI system requires more than checking whether its responses sound convincing.
+LLM QualityGuard demonstrates how an AI evaluation system can be treated as a measurable data-quality problem.
 
-A reliable AI evaluation workflow should measure:
+Rather than only asking:
 
-```text
-                 ┌─────────────────┐
-                 │ Retrieval       │
-                 │ Quality         │
-                 └────────┬────────┘
-                          ↓
-                 ┌─────────────────┐
-                 │ Answer          │
-                 │ Quality         │
-                 └────────┬────────┘
-                          ↓
-                 ┌─────────────────┐
-                 │ Grounding &     │
-                 │ Faithfulness    │
-                 └────────┬────────┘
-                          ↓
-                 ┌─────────────────┐
-                 │ Monitoring &    │
-                 │ Analytics       │
-                 └─────────────────┘
-```
+> "Did the LLM generate an answer?"
 
-The current project provides a reproducible baseline for this workflow, with measurable retrieval performance, automated testing, SQL analytics, orchestration, and dashboard preparation.
+the platform asks:
 
-The long-term vision is to evolve QualityGuard into a production-grade platform for continuously benchmarking and monitoring LLM applications.
+> "Was the correct information retrieved, was the answer grounded in that information, can the result be measured, and can failures be monitored automatically?"
+
+This provides a foundation for building more reliable, observable, and production-ready LLM applications.
 
 ---
 
 ## Author
 
 **Saniya Mohite**
-
 MSc Data Science (Distinction)
 
-Interests: Data Science · AI · LLM Evaluation · Data Quality · Automation · RAG · Analytics
+Interests:
+
+* Data Science
+* Artificial Intelligence
+* LLM Evaluation
+* Data Quality
+* RAG
+* Automation
+* Analytics
+* AI Reliability

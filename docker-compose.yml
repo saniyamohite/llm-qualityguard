@@ -1,0 +1,18 @@
+services:
+  qualityguard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: qualityguard
+
+    volumes:
+      - ./data:/app/data
+
+    environment:
+      - PYTHONUNBUFFERED=1
+
+    command:
+      - python
+      - -m
+      - src.main
