@@ -5,6 +5,7 @@ from sentence_transformers import SentenceTransformer
 from src.rag.retrieval import (
     retrieve_top_k_policies,
     rerank_policies,
+    check_hallucination,
 )
 from src.llm.generate_answer import generate_answer
 from src.llm.evaluate_answer import evaluate_answer
@@ -28,7 +29,7 @@ def run_pipeline(
         row["question"],
         knowledge_base,
         model,
-        top_k=3
+        top_k=5
     )
 
     best_policy = rerank_policies(
@@ -47,6 +48,11 @@ def run_pipeline(
         actual_answer
     )
 
+    hallucination = check_hallucination(
+    actual_answer,
+    best_policy["content"]
+    )
+
     return {
         "evaluation_id": row["evaluation_id"],
         "question": row["question"],
@@ -59,6 +65,7 @@ def run_pipeline(
         "actual_answer": actual_answer,
         "score": evaluation["score"],
         "result": evaluation["result"],
+        "hallucination": hallucination,
         "explanation": evaluation["explanation"],
     }
 

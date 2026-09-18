@@ -86,34 +86,60 @@ def retrieve_top_k_policies(
 
 def check_hallucination(answer, policy):
     """
-    Basic lexical-overlap hallucination check.
+    Basic sentence-level hallucination check.
 
-    This is a baseline heuristic rather than a production-grade
-    hallucination detector.
+    Returns:
+    LOW  -> all answer sentences have sufficient policy overlap
+    HIGH -> at least one sentence has weak policy overlap
     """
 
     if answer is None or policy is None:
         return "UNKNOWN"
 
-    answer_words = set(
-        re.findall(r"\b[a-zA-Z]+\b", str(answer).lower())
+    answer_sentences = re.split(
+        r"[.!?]+",
+        str(answer)
     )
 
     policy_words = set(
-        re.findall(r"\b[a-zA-Z]+\b", str(policy).lower())
+        re.findall(
+            r"\b[a-zA-Z]+\b",
+            str(policy).lower()
+        )
     )
 
-    if len(answer_words) == 0:
+    valid_sentences = [
+        sentence.strip()
+        for sentence in answer_sentences
+        if sentence.strip()
+    ]
+
+    if not valid_sentences:
         return "UNKNOWN"
 
-    common_words = answer_words.intersection(policy_words)
+    for sentence in valid_sentences:
 
-    overlap = len(common_words) / len(answer_words)
+        sentence_words = set(
+            re.findall(
+                r"\b[a-zA-Z]+\b",
+                sentence.lower()
+            )
+        )
 
-    if overlap >= 0.50:
-        return "LOW"
+        if not sentence_words:
+            continue
 
-    return "HIGH"
+        common_words = sentence_words.intersection(
+            policy_words
+        )
+
+        overlap = len(common_words) / len(sentence_words)
+
+        if overlap < 0.50:
+            return "HIGH"
+
+    return "LOW"
+
 
 def rerank_policies(question, candidates):
     """

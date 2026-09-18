@@ -1,6 +1,7 @@
 from google import genai
 import os
 import json
+import time
 from src.evaluation.evaluation import evaluate_score
 
 
@@ -57,15 +58,33 @@ Actual answer:
 {actual_answer}
 """
 
-    response = client.models.generate_content(
-        model="gemini-3.6-flash",
-        contents=prompt,
-        config={
-            "response_mime_type": "application/json"
-        }
-    )
+    for attempt in range(3):
+        try:
+            response = client.models.generate_content(
+                model="gemini-3.6-flash",
+                contents=prompt,
+                config={
+                    "response_mime_type": "application/json"
+                }
+            )
 
-    result = json.loads(response.text)
+            result = json.loads(response.text)
+
+            result["result"] = evaluate_score(result["score"])
+
+            return result
+
+        except Exception:
+            if attempt == 2:
+                raise
+
+            print(
+                "Gemini judge request failed. "
+                "Retrying in 5 seconds... "
+                f"(attempt {attempt + 1}/3)"
+            )
+
+            time.sleep(5)
 
     result["result"] = evaluate_score(result["score"])
 
