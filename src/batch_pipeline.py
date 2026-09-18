@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import duckdb
 from sentence_transformers import SentenceTransformer
 
 from src.pipeline import run_pipeline
@@ -32,33 +33,83 @@ def main():
         "all-MiniLM-L6-v2"
     )
 
-    test_data = evaluation_data.head(5)
+    database_path = "data/qualityguard.duckdb"
+
+    connection = duckdb.connect(database_path)
+
+    try:
+        completed = connection.execute(
+            """
+            SELECT DISTINCT evaluation_id
+            FROM llm_evaluations
+            """
+        ).fetchdf()
+
+        completed_ids = set(
+            completed["evaluation_id"].tolist()
+        )
+
+    except duckdb.CatalogException:
+        completed_ids = set()
+
+    finally:
+        connection.close()
+
+    remaining_data = evaluation_data[
+        ~evaluation_data["evaluation_id"].isin(completed_ids)
+    ].head(5)
+
+    print()
+    print(
+        f"Already completed: {len(completed_ids)}"
+    )
+    print(
+        f"Remaining in this batch: {len(remaining_data)}"
+    )
 
     results = []
 
-    print()
-    print("Running batch evaluation...")
+    for evaluation_id in remaining_data["evaluation_id"]:
 
-    for evaluation_id in test_data["evaluation_id"]:
-
+        print()
         print(f"Evaluating {evaluation_id}...")
 
-        result = run_pipeline(
-            evaluation_id=evaluation_id,
-            knowledge_base=knowledge_base,
-            evaluation_data=evaluation_data,
-            model=model
+        try:
+            result = run_pipeline(
+                evaluation_id=evaluation_id,
+                knowledge_base=knowledge_base,
+                evaluation_data=evaluation_data,
+                model=model
+            )
+
+            results.append(result)
+
+            print(
+                f"Completed {evaluation_id}: "
+                f"{result['result']}"
+            )
+
+        except Exception as error:
+
+            print(
+                f"Skipping {evaluation_id}: {error}"
+            )
+
+    if results:
+
+        results_df = pd.DataFrame(results)
+
+        save_results(results_df)
+
+        print()
+        print(
+            f"Saved {len(results_df)} new results to DuckDB."
         )
 
-        results.append(result)
+    else:
 
-    results_df = pd.DataFrame(results)
-
-    save_results(results_df)
-
-    print()
-    print(f"Evaluated {len(results_df)} questions.")
-    print("Results saved to DuckDB.")
+        print()
+        print("No new results were saved.")
 
 
 if __name__ == "__main__":

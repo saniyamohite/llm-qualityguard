@@ -48,12 +48,20 @@ Answer:
             return response.text.strip()
 
         except Exception as error:
+            error_text = str(error)
+
+            if "429" in error_text:
+                raise RuntimeError(
+                    "Gemini quota exceeded. "
+                    "Please wait for the quota to reset."
+                )
+
             if attempt == 2:
                 raise
 
             print(
-                f"Gemini request failed. "
-                f"Retrying in 5 seconds... "
+                "Gemini request failed. "
+                "Retrying in 5 seconds... "
                 f"(attempt {attempt + 1}/3)"
             )
 

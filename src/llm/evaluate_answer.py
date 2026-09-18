@@ -74,7 +74,15 @@ Actual answer:
 
             return result
 
-        except Exception:
+        except Exception as error:
+            error_text = str(error)
+
+            if "429" in error_text:
+                raise RuntimeError(
+                    "Gemini quota exceeded. "
+                    "Please wait for the quota to reset."
+                )
+
             if attempt == 2:
                 raise
 
