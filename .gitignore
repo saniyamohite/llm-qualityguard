@@ -28,3 +28,6 @@ Thumbs.db
 
 # Model/cache files
 .cache/
+
+# Generated embeddings
+data/*.npy
