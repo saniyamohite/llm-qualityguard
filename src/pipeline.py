@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from sentence_transformers import SentenceTransformer
+from src.database import save_results
 
 from src.rag.retrieval import (
     retrieve_top_k_policies,
@@ -105,6 +106,13 @@ def main():
     )
 
     print(result)
+
+    results_df = pd.DataFrame([result])
+
+    save_results(results_df)
+
+    print()
+    print("Result saved to DuckDB.")
 
 
 if __name__ == "__main__":
