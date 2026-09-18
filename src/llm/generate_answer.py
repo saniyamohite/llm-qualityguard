@@ -1,5 +1,6 @@
 from google import genai
 import os
+import time
 
 
 def generate_answer(question, policy):
@@ -37,9 +38,23 @@ Customer question:
 Answer:
 """
 
-    response = client.models.generate_content(
-        model="gemini-3.6-flash",
-        contents=prompt
-    )
+    for attempt in range(3):
+        try:
+            response = client.models.generate_content(
+                model="gemini-3.6-flash",
+                contents=prompt
+            )
 
-    return response.text.strip()
+            return response.text.strip()
+
+        except Exception as error:
+            if attempt == 2:
+                raise
+
+            print(
+                f"Gemini request failed. "
+                f"Retrying in 5 seconds... "
+                f"(attempt {attempt + 1}/3)"
+            )
+
+            time.sleep(5)
